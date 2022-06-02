@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // Public
 Route::prefix('/')->group(function () {
 
-    Route::view('/', 'welcome');
+    Route::view('/', 'FrontViews.front-main');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Auth::routes();
 

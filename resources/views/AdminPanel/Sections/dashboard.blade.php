@@ -1,4 +1,8 @@
-@extends('AdminPanel.Main.admin-main')
+@extends('AdminPanel.admin-main')
+
+@section('title')
+    Dashboard
+@endsection
 
 @section('dashboard')
 
