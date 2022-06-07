@@ -23,7 +23,7 @@
             </div>
 
             <div class="form-floating mb-3">
-                <input class="form-control @error('name') is-invalid @enderror" name="email" id="email" type="email"
+                <input class="form-control @error('email') is-invalid @enderror" name="email" id="email" type="email"
                        placeholder="Email" value="{{ old('email') }}" required autocomplete="email"/>
                 <label for="email">{{ __('Email Address') }}</label>
                 @error('email')
@@ -36,7 +36,7 @@
             <div class="row mb-3">
                 <div class="col-md-6">
                     <div class="form-floating mb-3 mb-md-0">
-                        <input class="form-control @error('password') is-invalid @enderror" id="name" id="password"
+                        <input class="form-control @error('password') is-invalid @enderror" id="password"
                                type="password" placeholder="Create a password" name="password" required
                                autocomplete="new-password"/>
                         <label for="password">{{ __('Password') }}</label>
@@ -49,9 +49,9 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-floating mb-3 mb-md-0">
-                        <input class="form-control" id="password-confirm" name="password-confirm" type="password"
+                        <input class="form-control" id="password_confirmation" name="password_confirmation" type="password"
                                placeholder="Confirm password" required autocomplete="new-password"/>
-                        <label for="password-confirm">{{ __('Confirm Password') }}</label>
+                        <label for="password_confirmation">{{ __('Confirm Password') }}</label>
                     </div>
                 </div>
             </div>
