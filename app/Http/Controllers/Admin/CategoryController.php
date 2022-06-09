@@ -18,7 +18,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('AdminPanel.Sections.Category.category', [
+        return view('AdminPanel.Sections.Category.index', [
             'categories' => CategoryResource::collection(Category::get()),
         ]);
     }

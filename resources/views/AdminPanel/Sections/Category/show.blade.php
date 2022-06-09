@@ -5,7 +5,7 @@
 @endsection
 
 @section('subtitle')
-    Kategorie - {{$category->name}}
+    Kategorie / {{$category->name}}
 @endsection
 
 @section('dashboard')
@@ -18,6 +18,6 @@
         <label for="description">Opis</label>
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <a class="btn btn-primary" href="{{route('category.index')}}">Powrót</a>
+        <a class="btn btn-primary" href="{{route('category.index')}}"><i class='fa-solid fa-angles-left'></i> Powrót</a>
     </div>
 @endsection

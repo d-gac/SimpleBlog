@@ -5,7 +5,7 @@
 @endsection
 
 @section('subtitle')
-    Kategorie - Dodaj
+    Kategorie / Dodaj
 @endsection
 
 @section('dashboard')
@@ -25,8 +25,8 @@
         <label for="description">Opis</label>
     </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <a class="btn btn-primary" href="{{route('category.index')}}">Powrót</a>
-        <button class="btn btn-primary" type="submit">Zapisz</button>
+        <a class="btn btn-primary" href="{{route('category.index')}}"><i class='fa-solid fa-angles-left'></i> Powrót</a>
+        <button class="btn btn-primary" type="submit">Zapisz <i class='fa-solid fa-angles-right'></i></button>
     </div>
 </form>
 @endsection

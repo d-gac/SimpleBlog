@@ -17,4 +17,12 @@ class Post extends Model
         'active',
         'publication_date',
     ];
+
+    /**
+     * The categories that belong to the post.
+     */
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'post_categories');
+    }
 }
