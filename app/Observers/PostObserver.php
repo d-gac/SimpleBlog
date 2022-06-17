@@ -2,10 +2,22 @@
 
 namespace App\Observers;
 
+use App\Http\Helpers\Helper;
 use App\Models\Post;
 
 class PostObserver
 {
+    /**
+     * Handle the Post "creating" event.
+     *
+     * @param \App\Models\Post $post
+     * @return void
+     */
+    public function creating(Post $post)
+    {
+        Helper::uploadPhoto($post);
+    }
+
     /**
      * Handle the Post "created" event.
      *

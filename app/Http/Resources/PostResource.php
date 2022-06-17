@@ -23,6 +23,20 @@ class PostResource extends JsonResource
             'content'=>$this->content,
             'active'=>$this->active,
             'publication_date'=>$this->publication_date,
+            'category'=>$this->categories,
+            'category_names'=> self::getCategoryNames($this->categories),
         ];
+    }
+
+    public function getCategoryNames($categories){
+        $category_names = " ";
+        if (count($categories))
+        {
+            foreach ($categories as $category) {
+                $category_names .= $category->name.', ';
+            }
+        }
+
+        return $category_names;
     }
 }

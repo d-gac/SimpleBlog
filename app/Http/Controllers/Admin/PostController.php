@@ -3,7 +3,6 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Resources\CategoryResource;
 use App\Http\Resources\PostResource;
 use App\Models\Category;
 use App\Models\Post;
@@ -20,9 +19,8 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('AdminPanel.Sections.Post.index', [
-            'posts' => PostResource::collection(Post::get()),
-        ]);
+        $posts = PostResource::collection(Post::all());
+        return view('AdminPanel.Sections.Post.index', ['posts' => $posts]);
     }
 
     /**
