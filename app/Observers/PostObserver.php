@@ -30,6 +30,25 @@ class PostObserver
     }
 
     /**
+     * Handle the Post "updating" event.
+     *
+     * @param \App\Models\Post $post
+     * @return void
+     */
+    public function updating(Post $post)
+    {
+        $old_photo = $post->photo;
+        $post->photo = $old_photo;
+
+        if (request()->hasFile('image')) {
+            if (Helper::uploadPhoto($post)) {
+                Helper::deletePhoto($old_photo);
+            }
+        }
+
+    }
+
+    /**
      * Handle the Post "updated" event.
      *
      * @param \App\Models\Post $post
@@ -48,7 +67,9 @@ class PostObserver
      */
     public function deleted(Post $post)
     {
-        //
+        if ($post->photo) {
+            Helper::deletePhoto($post->photo);
+        }
     }
 
     /**

@@ -27,6 +27,7 @@
             <table id="datatablesSimple">
                 <thead>
                 <tr>
+                    <th>Miniaturka</th>
                     <th>Title</th>
                     <th>Preview content</th>
                     <th>Active</th>
@@ -37,6 +38,7 @@
                 </thead>
                 <tfoot>
                 <tr>
+                    <th>Miniaturka</th>
                     <th>Title</th>
                     <th>Preview content</th>
                     <th>Active</th>
@@ -48,9 +50,16 @@
                 <tbody>
                 @foreach($posts as $post)
                     <tr>
+                        <td class="w-25">
+                            @if($post->photo)
+                                <img class="img-thumbnail" src="{{$post->photo}}" alt="{{$post->title}} - miniaturka">
+                            @else
+                                Brak miniaturki
+                            @endif
+                        </td>
                         <td class="w-25">{{$post->title}}</td>
                         <td class="w-25">{{$post->preview_content}}</td>
-                        <td class="w-25">{{$post->active}}</td>
+                        <td>{{$post->active}}</td>
                         <td class="w-25">{{$post->publication_date}}</td>
                         <td class="w-25">
                             @foreach($post->categories as $category)

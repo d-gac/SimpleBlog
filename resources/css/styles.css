@@ -11699,3 +11699,16 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+.checkbox {
+    height: 25px !important;
+    width: 50px !important;
+    margin-right: 10px;
+}
+
+.ta-short {
+    min-height: 100px !important;
+}
+.ta-long {
+    min-height: 150px !important;
+}

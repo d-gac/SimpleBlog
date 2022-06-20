@@ -13,7 +13,9 @@
         @csrf
         @if ($errors->any())
             @foreach ($errors->all() as $error)
-                <div class="alert-danger">{{$error}}</div>
+                <div class="alert alert-danger" role="alert">
+                    {{$error}}
+                </div>
             @endforeach
         @endif
         <div class="form-floating mb-3">
@@ -21,24 +23,24 @@
             <label for="title">Tytuł</label>
         </div>
         <div class="form-floating mb-3">
-            <input required name="preview_content" type="text" class="form-control" value="{{old('preview_content')}}" id="preview_content" placeholder="Treść poglądowa...">
+            <textarea required name="preview_content" type="text" class="form-control ta-short" id="preview_content" placeholder="Treść poglądowa...">{{old('preview_content')}}</textarea>
             <label for="preview_content">Podgląd treści</label>
         </div>
         <div class="form-floating mb-3">
-            <input required name="content" type="text" class="form-control" value="{{old('content')}}" id="content" placeholder="Treść poglądowa...">
+            <textarea required name="content" type="text" class="form-control ta-long" id="content" placeholder="Treść...">{{old('content')}}</textarea>
             <label for="content">Treść</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input required name="active" type="text" class="form-control" value="{{old('active')}}" id="active" placeholder="Treść poglądowa...">
-            <label for="active">Aktywny</label>
         </div>
         <div class="form-floating mb-3">
             <input required name="publication_date" type="datetime-local" class="form-control" value="{{old('publication_date')}}" id="publication_date" placeholder="Data publikacji...">
             <label for="publication_date">Data publikacji</label>
         </div>
+        <div class="form-check form-switch mb-3 d-flex align-items-center">
+            <input name="active" class="form-check-input checkbox" type="checkbox" id="active" value="1">
+            <label class="form-check-label" for="active">Aktywny</label>
+        </div>
+        <label for="image">Miniaturka</label>
         <div class="form-floating mb-3">
             <input type="file" name="image" placeholder="Wybierz obrazek" value="{{old('image')}}" id="image">
-            <label for="image">Obrazek</label>
         </div>
         <div class="mb-3">
             <label>Kategorie :</label><br/>

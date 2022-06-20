@@ -27,7 +27,7 @@ class StorePostRequest extends FormRequest
             'title' => 'required|string|max:255',
             'preview_content' => 'required|string|max:65535',
             'content' => 'required|string|max:65535',
-            'active' => 'required|boolean',
+            'active' => 'nullable|boolean',
             'publication_date' => 'required|date',
             'categories' => 'required|array|exists:categories,id',
         ];
