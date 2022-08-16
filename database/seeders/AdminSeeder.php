@@ -7,18 +7,19 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-class DatabaseSeeder extends Seeder
+class AdminSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */
     public function run()
     {
-        $this->call(AdminSeeder::class);
-        $this->call(TagSeeder::class);
-        $this->call(CategorySeeder::class);
-        $this->call(PostSeeder::class);
+        DB::table('users')->insert([
+            'name' => 'Dariusz Gac',
+            'email' => 'darekgac1998@gmail.com',
+            'password' => Hash::make('12345678'),
+        ]);
     }
 }

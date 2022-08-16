@@ -4,6 +4,9 @@ namespace App\Observers;
 
 use App\Http\Helpers\Helper;
 use App\Models\Post;
+use App\Models\Tag;
+use Illuminate\Support\Facades\DB;
+use function PHPUnit\Framework\isNull;
 
 class PostObserver
 {
@@ -15,6 +18,22 @@ class PostObserver
      */
     public function creating(Post $post)
     {
+        $tags = array_map('strval', explode(' ', request()->tags));
+        foreach ($tags as $tag) {
+            $tag = Helper::hasHashTag($tag);
+            $tagCheck = Tag::where('name', $tag)->first();
+            if (isNull($tagCheck)){
+                $row = DB::transaction(function () use ($tagCheck, $tag) {
+                    return Tag::create(
+                        [
+                            'name' => $tag,
+                            'description' => 'Tag dodany poprzez wpis'
+                        ]
+                    );
+                });
+            }
+        }
+
         Helper::uploadPhoto($post);
     }
 

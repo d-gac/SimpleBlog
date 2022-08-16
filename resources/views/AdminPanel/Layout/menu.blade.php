@@ -12,6 +12,10 @@
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Category
                 </a>
+                <a class="nav-link" href="{{route('tag.index')}}">
+                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                    Tag
+                </a>
                 <a class="nav-link" href="{{route('post.index')}}">
                     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                     Post

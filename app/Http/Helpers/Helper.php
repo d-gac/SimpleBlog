@@ -30,4 +30,14 @@ class Helper extends Controller
     {
         return File::delete(public_path($photo));
     }
+
+    public static function hasHashTag($tagName)
+    {
+        if (!str_contains(substr($tagName, 0, 1), '#')) {
+            $tagName = substr_replace($tagName, "#", 0, 0);
+            return $tagName;
+        } else {
+            return $tagName;
+        }
+    }
 }
