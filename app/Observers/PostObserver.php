@@ -18,22 +18,6 @@ class PostObserver
      */
     public function creating(Post $post)
     {
-        $tags = array_map('strval', explode(' ', request()->tags));
-        foreach ($tags as $tag) {
-            $tag = Helper::hasHashTag($tag);
-            $tagCheck = Tag::where('name', $tag)->first();
-            if (isNull($tagCheck)){
-                $row = DB::transaction(function () use ($tagCheck, $tag) {
-                    return Tag::create(
-                        [
-                            'name' => $tag,
-                            'description' => 'Tag dodany poprzez wpis'
-                        ]
-                    );
-                });
-            }
-        }
-
         Helper::uploadPhoto($post);
     }
 
@@ -46,6 +30,23 @@ class PostObserver
     public function created(Post $post)
     {
         $post->categories()->attach(request()->categories);
+
+        $tags = array_map('strval', explode(' ', request()->tags));
+        foreach ($tags as $tag) {
+            $tag = Helper::hasHashTag($tag);
+            $tagCheck = Tag::where('name', $tag)->first();
+            if (is_null($tagCheck)){
+                $row = DB::transaction(function () use ($tag) {
+                    return Tag::create(
+                        [
+                            'name' => $tag,
+                            'description' => 'Tag dodany poprzez wpis'
+                        ]
+                    );
+                });
+             $post->tags()->attach($row->id);
+            }
+        }
     }
 
     /**
