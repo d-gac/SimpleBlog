@@ -30,6 +30,8 @@ class StorePostRequest extends FormRequest
             'active' => 'nullable|boolean',
             'publication_date' => 'required|date',
             'categories' => 'required|array|exists:categories,id',
+            'created_by' => 'nullable|integer|exists:users,id',
+            'updated_by' => 'nullable|integer|exists:users,id',
         ];
     }
 }

@@ -16,6 +16,8 @@ class Post extends Model
         'content',
         'active',
         'publication_date',
+        'created_by',
+        'updated_by',
     ];
 
     /**
@@ -32,5 +34,13 @@ class Post extends Model
     public function tags()
     {
         return $this->belongsToMany(Tag::class, 'post_tags');
+    }
+
+    /**
+     * The user that belong to the post.
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'updated_by');
     }
 }

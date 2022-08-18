@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Public\FrontController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,8 +22,8 @@ Route::get('/send', [HomeController::class, 'send'])->name('home.send');
 // Public
 Route::prefix('/')->group(function () {
 
-    Route::view('/', 'FrontViews.front-main');
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::get('/', [FrontController::class, 'homePage'])->name('homePage');
+//    Route::get('/home', [HomeController::class, 'index'])->name('home'); //?
     Auth::routes();
 
 });

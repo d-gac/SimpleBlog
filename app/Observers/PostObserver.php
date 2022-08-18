@@ -5,6 +5,7 @@ namespace App\Observers;
 use App\Http\Helpers\Helper;
 use App\Models\Post;
 use App\Models\Tag;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use function PHPUnit\Framework\isNull;
 
@@ -18,6 +19,9 @@ class PostObserver
      */
     public function creating(Post $post)
     {
+        $post->created_by = Auth::id();
+        $post->updated_by = Auth::id();
+
         Helper::uploadPhoto($post);
     }
 

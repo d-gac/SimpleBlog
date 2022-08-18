@@ -17,7 +17,7 @@ class TagSeeder extends Seeder
     public function run()
     {
 //        Tag::factory()->count(5)->create();
-        DB::table('categories')->insert(
+        DB::table('tags')->insert(
             array(
 
                 array(

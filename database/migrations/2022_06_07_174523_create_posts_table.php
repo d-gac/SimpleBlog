@@ -18,10 +18,11 @@ return new class extends Migration
             $table->string('title');
             $table->text('preview_content');
             $table->text('content');
-            $table->boolean('active');
             $table->dateTime('publication_date');
-            $table->boolean('active')->default(0)->change();
+            $table->boolean('active')->default(0);
             $table->string('photo')->nullable()->default(NULL);
+            $table->foreignId('created_by')->constrained('users');
+            $table->foreignId('updated_by')->constrained('users');
             $table->timestamps();
         });
     }

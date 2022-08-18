@@ -30,6 +30,7 @@ class UpdatePostRequest extends FormRequest
             'active' => 'nullable|boolean',
             'publication_date' => 'required|date',
             'categories' => 'required|array|exists:categories,id',
+            'updated_by' => 'required|integer|exists:users,id',
         ];
     }
 }

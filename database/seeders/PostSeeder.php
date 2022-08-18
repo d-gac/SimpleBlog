@@ -25,8 +25,12 @@ class PostSeeder extends Seeder
                     'preview_content' => 'Wpis testowy o niczym',
                     'content' => 'Wpis testowy o niczym. Niczego tutaj nie znajdziesz',
                     'active' => 1,
-                    'publication_date' => '2019-09-10 00:00:00',
+                    'publication_date' => '2019-09-10 11:45:42',
                     'photo' => NULL,
+                    'created_by' => 1,
+                    'updated_by' => 1,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ),
 
                 array(
@@ -34,8 +38,12 @@ class PostSeeder extends Seeder
                     'preview_content' => 'Wpis testowy numer 2 o niczym',
                     'content' => 'Wpis testowy numer 2 o niczym. Niczego tutaj nie znajdziesz',
                     'active' => 1,
-                    'publication_date' => '2019-09-10 00:00:00',
+                    'publication_date' => '2021-02-19 16:59:44',
                     'photo' => NULL,
+                    'created_by' => 1,
+                    'updated_by' => 1,
+                    'created_at' => now(),
+                    'updated_at' => now(),
                 ),
 
             ),
