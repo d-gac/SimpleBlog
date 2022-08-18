@@ -20,6 +20,8 @@ return new class extends Migration
             $table->text('content');
             $table->boolean('active');
             $table->dateTime('publication_date');
+            $table->boolean('active')->default(0)->change();
+            $table->string('photo')->nullable()->default(NULL);
             $table->timestamps();
         });
     }
