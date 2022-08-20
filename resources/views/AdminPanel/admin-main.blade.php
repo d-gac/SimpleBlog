@@ -6,7 +6,7 @@
 </head>
 <body class="sb-nav-fixed">
 
-@extends('AdminPanel.Layout.navbar')
+@extends('AdminPanel.Layout.navbar')`
 
 <div id="layoutSidenav">
 
@@ -22,7 +22,7 @@
                 @yield('dashboard')
             </div>
         </main>
-    @include('AdminPanel.Layout.footer')
+        @include('AdminPanel.Layout.footer')
     </div>
 </div>
 @include('AdminPanel.import.import-body')

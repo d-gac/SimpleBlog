@@ -7,6 +7,7 @@ use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use function PHPUnit\Framework\isNull;
 
 class PostObserver
@@ -21,6 +22,7 @@ class PostObserver
     {
         $post->created_by = Auth::id();
         $post->updated_by = Auth::id();
+        $post->slug = Str::slug($post->title, '-');
 
         Helper::uploadPhoto($post);
     }

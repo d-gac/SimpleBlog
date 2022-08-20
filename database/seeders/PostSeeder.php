@@ -22,6 +22,7 @@ class PostSeeder extends Seeder
 
                 array(
                     'title' => 'Wpis testowy',
+                    'slug' => 'wpis-testowy',
                     'preview_content' => 'Wpis testowy o niczym',
                     'content' => 'Wpis testowy o niczym. Niczego tutaj nie znajdziesz',
                     'active' => 1,
@@ -35,6 +36,7 @@ class PostSeeder extends Seeder
 
                 array(
                     'title' => 'Wpis testowy numer 2',
+                    'slug' => 'wpis-testowy-numer-2',
                     'preview_content' => 'Wpis testowy numer 2 o niczym',
                     'content' => 'Wpis testowy numer 2 o niczym. Niczego tutaj nie znajdziesz',
                     'active' => 1,

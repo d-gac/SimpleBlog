@@ -11252,3 +11252,10 @@ header.masthead .post-heading .meta a {
 .form-floating > .form-control {
     height: 3.5rem !important;
 }
+
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}

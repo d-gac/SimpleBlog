@@ -18,12 +18,14 @@ class PostResource extends JsonResource
         return [
             'id'=>$this->id,
             'title'=>$this->title,
-            'slug'=>Str::slug($this->title, '-'),
+            'slug'=>$this->slug,
+            'test'=>'dsadas das dasd ads ad asdsa das',
             'preview_content'=>$this->preview_content,
             'content'=>$this->content,
             'active'=>$this->active,
             'publication_date'=>$this->publication_date,
             'category'=>$this->categories,
+            'user'=>$this->user,
             'category_names'=> self::getCategoryNames($this->categories),
         ];
     }
