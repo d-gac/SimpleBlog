@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\FooterController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
@@ -38,7 +38,7 @@ Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::resource('category', CategoryController::class);
     Route::resource('tag', TagController::class);
     Route::resource('post', PostController::class);
-    Route::resource('setting', SettingController::class);
+    Route::resource('footer', FooterController::class);
 
 });
 

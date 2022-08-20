@@ -5,7 +5,7 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <ul class="list-inline text-center">
 
-                    @if($settings->is_visible_twitter)
+                    @if(isset($settings->is_visible_twitter))
                         <li class="list-inline-item">
                             <a href="{{$settings->twitter}}">
                                     <span class="fa-stack fa-lg">
@@ -16,7 +16,7 @@
                         </li>
                     @endif
 
-                    @if($settings->is_visible_facebook)
+                    @if(isset($settings->is_visible_facebook))
                         <li class="list-inline-item">
                             <a href="{{$settings->facebook}}">
                                     <span class="fa-stack fa-lg">
@@ -27,7 +27,7 @@
                         </li>
                     @endif
 
-                    @if($settings->is_visible_github)
+                    @if(isset($settings->is_visible_github))
                         <li class="list-inline-item">
                             <a href="{{$settings->github}}">
                                     <span class="fa-stack fa-lg">
@@ -38,7 +38,7 @@
                         </li>
                     @endif
 
-                    @if($settings->is_visible_linkedin)
+                    @if(isset($settings->is_visible_linkedin))
                         <li class="list-inline-item">
                             <a href="{{$settings->linkedin}}">
                                     <span class='fa-stack fa-lg'>
@@ -49,7 +49,7 @@
                         </li>
                     @endif
 
-                    @if($settings->is_visible_youtube)
+                    @if(isset($settings->is_visible_youtube))
                         <li class="list-inline-item">
                             <a href="{{$settings->youtube}}">
                                     <span class='fa-stack fa-lg'>
