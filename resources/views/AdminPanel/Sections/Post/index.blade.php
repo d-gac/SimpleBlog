@@ -63,10 +63,10 @@
                         <td class="w-25">{{$post->publication_date}}</td>
                         <td class="w-25">
                             @foreach($post->categories as $category)
-                                @if(!$loop->last)
-                                    {{$category->name}},
-                                @else
+                                @if($loop->last)
                                     {{$category->name}}
+                                @else
+                                    {{$category->name}},
                                 @endif
                             @endforeach
                         </td>

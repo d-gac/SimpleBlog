@@ -70,7 +70,6 @@ class CategoryController extends Controller
     public function edit(Category $category)
     {
         return view('AdminPanel.Sections.Category.edit', [
-//            'category' => new CategoryResource($category),
             'category' => $category,
         ]);
     }

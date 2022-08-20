@@ -17,7 +17,12 @@ class FrontController extends Controller
      */
     public function homePage()
     {
-        $posts = PostResource::collection(Post::with('user')->orderBy('publication_date','desc')->get());
+        $posts = PostResource::collection(
+            Post::with('user')
+                ->orderBy('publication_date','desc')
+                ->paginate(5)
+        );
+
         $settings = Setting::first();
 
         return view('FrontViews.Sections.welcome', [

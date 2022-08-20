@@ -3,6 +3,8 @@
 @section('content')
     @foreach($posts as $post)
 
+        <hr class="my-4"/>
+
         <div class="post-preview">
             <a href="{{url('post/'.$post->slug)}}">
                 <h2 class="post-title">{{$post->title}}</h2>
@@ -15,9 +17,12 @@
             </p>
         </div>
 
-        @if(!$loop->last)
-            <hr class="my-4"/>
-        @endif
-
     @endforeach
+
+    <hr class="my-4"/>
+
+    <div class="d-flex justify-content-evenly">
+        {{$posts->links()}}
+    </div>
+
 @endsection
