@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Public;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
+use App\Models\Footer;
+use App\Models\Header;
 use App\Models\Post;
 use App\Models\Setting;
 use Illuminate\Http\Request;
@@ -23,11 +25,13 @@ class FrontController extends Controller
                 ->paginate(5)
         );
 
-        $settings = Setting::first();
+        $header = Header::first();
+        $footer = Footer::first();
 
         return view('FrontViews.Sections.welcome', [
             'posts' => $posts,
-            'settings' => $settings,
+            'header' => $header,
+            'footer' => $footer,
         ]);
     }
     /**

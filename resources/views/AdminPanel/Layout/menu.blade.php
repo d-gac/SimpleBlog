@@ -7,32 +7,31 @@
 {{--                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>--}}
 {{--                    Dashboard--}}
 {{--                </a>--}}
-                <div class="sb-sidenav-menu-heading">Blog managment</div>
-                <a class="nav-link" href="{{route('category.index')}}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    Category
-                </a>
-                <a class="nav-link" href="{{route('tag.index')}}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    Tag
-                </a>
+                <div class="sb-sidenav-menu-heading">Zarządzanie treścią</div>
                 <a class="nav-link" href="{{route('post.index')}}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    Post
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-clipboard"></i></div>
+                    Wpisy
                 </a>
 
-                <div class="sb-sidenav-menu-heading">Setting</div>
-                <a class="nav-link" href="{{route('footer.index')}}">
-                    <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                    Footer
+                <div class="sb-sidenav-menu-heading">Administrator</div>
+                <a class="nav-link" href="{{route('category.index')}}">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-star-sharp"></i></div>
+                    Kategorie
                 </a>
-{{--                <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne"--}}
-{{--                     data-bs-parent="#sidenavAccordion">--}}
-{{--                    <nav class="sb-sidenav-menu-nested nav">--}}
-{{--                        <a class="nav-link" href="layout-static.html">Static Navigation</a>--}}
-{{--                        <a class="nav-link" href="layout-sidenav-light.html">Light Sidenav</a>--}}
-{{--                    </nav>--}}
-{{--                </div>--}}
+                <a class="nav-link" href="{{route('tag.index')}}">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-hashtag"></i></div>
+                    Tagi
+                </a>
+
+                <div class="sb-sidenav-menu-heading">Ustawienia witryny</div>
+                <a class="nav-link" href="{{route('footer.index')}}">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-gear"></i></div>
+                    Stopka
+                </a>
+                <a class="nav-link" href="{{route('header.index')}}">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-gear"></i></div>
+                    Nagłówek
+                </a>
 {{--                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"--}}
 {{--                   aria-expanded="false" aria-controls="collapsePages">--}}
 {{--                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>--}}

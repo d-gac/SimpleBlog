@@ -15,7 +15,7 @@
         <div class="card-header d-flex justify-content-between">
 
             <div>
-                <i class="fas fa-table me-1"></i> Ustawienia
+                <i class="fas fa-table me-1"></i> Stopka
             </div>
 
             <div>

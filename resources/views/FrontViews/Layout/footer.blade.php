@@ -5,9 +5,9 @@
             <div class="col-md-10 col-lg-8 col-xl-7">
                 <ul class="list-inline text-center">
 
-                    @if(isset($settings->is_visible_twitter))
+                    @if($footer->is_visible_twitter)
                         <li class="list-inline-item">
-                            <a href="{{$settings->twitter}}">
+                            <a href="{{$footer->twitter}}">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
@@ -16,9 +16,9 @@
                         </li>
                     @endif
 
-                    @if(isset($settings->is_visible_facebook))
+                    @if($footer->is_visible_facebook)
                         <li class="list-inline-item">
-                            <a href="{{$settings->facebook}}">
+                            <a href="{{$footer->facebook}}">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
@@ -27,9 +27,9 @@
                         </li>
                     @endif
 
-                    @if(isset($settings->is_visible_github))
+                    @if($footer->is_visible_github)
                         <li class="list-inline-item">
-                            <a href="{{$settings->github}}">
+                            <a href="{{$footer->github}}">
                                     <span class="fa-stack fa-lg">
                                         <i class="fas fa-circle fa-stack-2x"></i>
                                         <i class="fab fa-github fa-stack-1x fa-inverse"></i>
@@ -38,9 +38,9 @@
                         </li>
                     @endif
 
-                    @if(isset($settings->is_visible_linkedin))
+                    @if($footer->is_visible_linkedin)
                         <li class="list-inline-item">
-                            <a href="{{$settings->linkedin}}">
+                            <a href="{{$footer->linkedin}}">
                                     <span class='fa-stack fa-lg'>
                                         <i class='fas fa-circle fa-stack-2x'></i>
                                         <i class='fab fa-linkedin-in fa-stack-1x fa-inverse'></i>
@@ -49,9 +49,9 @@
                         </li>
                     @endif
 
-                    @if(isset($settings->is_visible_youtube))
+                    @if($footer->is_visible_youtube)
                         <li class="list-inline-item">
-                            <a href="{{$settings->youtube}}">
+                            <a href="{{$footer->youtube}}">
                                     <span class='fa-stack fa-lg'>
                                         <i class='fas fa-circle fa-stack-2x'></i>
                                         <i class='fab fa-youtube fa-stack-1x fa-inverse'></i>

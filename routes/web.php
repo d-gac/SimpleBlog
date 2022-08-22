@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\FooterController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\HeaderController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\HomeController;
@@ -39,6 +40,7 @@ Route::middleware('auth')->prefix('/admin')->group(function () {
     Route::resource('tag', TagController::class);
     Route::resource('post', PostController::class);
     Route::resource('footer', FooterController::class);
+    Route::resource('header', HeaderController::class);
 
 });
 

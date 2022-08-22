@@ -60,7 +60,6 @@ class PostController extends Controller
     public function show(Post $post)
     {
         return view('AdminPanel.Sections.Post.show', [
-//            'category' => new CategoryResource($category),
             'categories' => Category::all(),
             'post' => $post,
             'actualCategories' => $post->categories->pluck('id')->toArray(),

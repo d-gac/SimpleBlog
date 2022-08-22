@@ -56,7 +56,6 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         return view('AdminPanel.Sections.Category.show', [
-//            'category' => new CategoryResource($category),
             'category' => $category,
         ]);
     }

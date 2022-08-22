@@ -52,7 +52,6 @@ class SettingController extends Controller
     public function show(Setting $setting)
     {
         return view('AdminPanel.Sections.Settings.show', [
-//            'category' => new CategoryResource($category),
             'setting' => $setting,
         ]);
     }
@@ -66,7 +65,6 @@ class SettingController extends Controller
     public function edit(Setting $setting)
     {
         return view('AdminPanel.Sections.Settings.edit', [
-//            'category' => new CategoryResource($category),
             'setting' => $setting,
         ]);
     }
