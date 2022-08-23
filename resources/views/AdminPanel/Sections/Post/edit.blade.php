@@ -59,7 +59,7 @@
             <input name="tags" type="text" class="form-control" id="tags"  placeholder="Tagi wpisu...">
             <label for="title">Tagi</label>
         </div>
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
             <a class="btn btn-primary" href="{{route('post.index')}}"><i class='fa-solid fa-angles-left'></i> Powrót</a>
             <button class="btn btn-primary" type="submit">Zapisz <i class='fa-solid fa-angles-right'></i></button>
         </div>

@@ -49,7 +49,7 @@
         <input disabled name="youtube" type="text" class="form-control" id="youtube" value="{{ $footer->youtube }}">
         <label for="youtube">Link - Youtube</label>
     </div>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
         <a class="btn btn-primary" href="{{route('footer.index')}}"><i class='fa-solid fa-angles-left'></i> Powrót</a>
     </div>
 @endsection

@@ -17,7 +17,7 @@
         <input disabled name="description" type="text" class="form-control" id="description" value="{{ $category->description }}" placeholder="Opis kategorii...">
         <label for="description">Opis</label>
     </div>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
         <a class="btn btn-primary" href="{{route('category.index')}}"><i class='fa-solid fa-angles-left'></i> Powrót</a>
     </div>
 @endsection

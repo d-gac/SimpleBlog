@@ -49,9 +49,9 @@
                 <tbody>
                     <tr>
                         <td class="w-20">{{$header->is_visible_webTitle ? $header->webTitle : 'Wyświetlanie wyłączone'}}</td>
-                        <td class="w-20">{{$header->banner_title}}</td>
-                        <td class="w-20">{{$header->banner_paragraph}}</td>
-                        <td class="w-20">{{$header->banner_photo}}</td>
+                        <td class="w-20">{{$header->banner_title ?? 'Brak'}}</td>
+                        <td class="w-20">{{$header->banner_paragraph ?? 'Brak'}}</td>
+                        <td class="w-20">{{$header->banner_photo ?? 'Brak'}}</td>
                         <td class="w-20">{{$header->is_visible_about ? 'Wyświetlaj' : 'Nie wyświetlaj'}}</td>
                         <td class="w-20">{{$header->is_visible_contact ? 'Wyświetlaj' : 'Nie wyświetlaj'}}</td>
                         <td class="d-flex flex-row bd-highlight">

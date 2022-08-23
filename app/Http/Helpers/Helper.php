@@ -3,8 +3,11 @@
 namespace App\Http\Helpers;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use http\Env\Request;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 use function Symfony\Component\Translation\t;
 
 class Helper extends Controller
@@ -38,6 +41,20 @@ class Helper extends Controller
             return $tagName;
         } else {
             return $tagName;
+        }
+    }
+
+    public static function uploadBaner($header)
+    {
+        if (request()->hasFile('banner_photo')) {
+
+            $extension = request()->file('banner_photo')->getClientOriginalExtension();
+            $now = Str::slug(Carbon::now()->format('Y-m-d H:m:s'), '-');
+            $filename =  'banner-'.$now.'.'.$extension;
+
+            $path = Storage::disk('public')->putFileAs('Banner' ,request()->file('banner_photo'), $filename);
+
+            $header->banner_photo = 'storage/'.$path;
         }
     }
 }

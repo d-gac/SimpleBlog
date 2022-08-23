@@ -60,7 +60,7 @@
             <label for="youtube">Link - Youtube</label>
         </div>
 
-        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
             <a class="btn btn-primary" href="{{route('footer.index')}}"><i class='fa-solid fa-angles-left'></i> Powrót</a>
             <button class="btn btn-primary" type="submit">Zapisz <i class='fa-solid fa-angles-right'></i></button>
         </div>
