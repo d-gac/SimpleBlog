@@ -14,15 +14,17 @@
         @method('PUT')
         @if ($errors->any())
             @foreach ($errors->all() as $error)
-                <div class="alert-danger">{{$error}}</div>
+                <div class="alert alert-danger" role="alert">
+                    {{$error}}
+                </div>
             @endforeach
         @endif
         <div class="form-floating mb-3">
-            <input required name="name" type="text" class="form-control" id="name" value="{{ $category->name }}" placeholder="Nazwa kategorii...">
+            <input required name="name" type="text" class="form-control" id="name" value="{{ old('name', $category->name) }}" placeholder="Nazwa kategorii...">
             <label for="name">Nazwa</label>
         </div>
         <div class="form-floating mb-3">
-            <input name="description" type="text" class="form-control" id="description" value="{{ $category->description }}" placeholder="Opis kategorii...">
+            <input name="description" type="text" class="form-control" id="description" value="{{ old('description', $category->description) }}" placeholder="Opis kategorii...">
             <label for="description">Opis</label>
         </div>
         <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">

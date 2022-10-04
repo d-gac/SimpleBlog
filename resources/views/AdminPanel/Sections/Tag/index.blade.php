@@ -30,7 +30,6 @@
                 <tr>
                     <th>Nazwa</th>
                     <th>Opis</th>
-                    <th>Status</th>
                     <th>Operacje</th>
                 </tr>
                 </thead>
@@ -38,7 +37,6 @@
                 <tr>
                     <th>Nazwa</th>
                     <th>Opis</th>
-                    <th>Status</th>
                     <th>Operacje</th>
                 </tr>
                 </tfoot>
@@ -47,7 +45,6 @@
                     <tr>
                         <td class="w-50">{{$tag->name}}</td>
                         <td class="w-50">{{$tag->description}}</td>
-                        <td class="w-50">{{$tag->status}}</td>
                         <td class="d-flex flex-row bd-highlight">
                             <a class="btn btn-outline-success" href="{{route('tag.show', $tag->id)}}"><i class='fa fa-file-text'></i></a>
                             <a class="btn btn-outline-primary ms-1" href="{{route('tag.edit', $tag->id)}}"><i class='fa fa-edit'></i></a>

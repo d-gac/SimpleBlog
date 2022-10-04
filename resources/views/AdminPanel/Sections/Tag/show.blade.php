@@ -17,10 +17,6 @@
         <input disabled name="description" type="text" class="form-control" id="description" value="{{ $tag->description }}" placeholder="Opis tagu...">
         <label for="description">Opis</label>
     </div>
-    <div class="form-floating mb-3">
-        <input disabled name="status" type="text" class="form-control" id="status" value="{{ $tag->status }}" placeholder="Status tagu...">
-        <label for="status">Status</label>
-    </div>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
         <a class="btn btn-primary" href="{{route('tag.index')}}"><i class='fa-solid fa-angles-left'></i> Powrót</a>
     </div>

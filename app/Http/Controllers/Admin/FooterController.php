@@ -78,8 +78,16 @@ class FooterController extends Controller
      */
     public function update(UpdateFooterRequest $request, Footer $footer)
     {
-        $row = DB::transaction(function () use ($request, $footer) {
-            return $footer->update($request->validated());
+        $validated = $request->validated();
+
+        $validated['is_visible_twitter'] = !$request->has('is_visible_twitter') ? 0 : 1;
+        $validated['is_visible_facebook'] = !$request->has('is_visible_facebook') ? 0 : 1;
+        $validated['is_visible_github'] = !$request->has('is_visible_github') ? 0 : 1;
+        $validated['is_visible_linkedin'] = !$request->has('is_visible_linkedin') ? 0 : 1;
+        $validated['is_visible_youtube'] = !$request->has('is_visible_youtube') ? 0 : 1;
+
+        $row = DB::transaction(function () use ($validated, $footer) {
+            return $footer->update($validated);
         });
         return redirect()->route('footer.index');
     }

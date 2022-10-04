@@ -11712,3 +11712,16 @@ body {
 .ta-long {
     min-height: 150px !important;
 }
+
+.flex-form-visbility {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: flex-start;
+}
+
+.w-85 {
+    width: 85%;
+}

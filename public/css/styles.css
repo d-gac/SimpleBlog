@@ -4701,8 +4701,8 @@ textarea.form-control-lg {
   }
 }
 .accordion-button:not(.collapsed) {
-  color: #0c63e4;
-  background-color: #e7f1ff;
+  color: #000000;
+  background-color: rgba(0, 0, 0, 0.03);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.125);
 }
 .accordion-button:not(.collapsed)::after {
@@ -4732,7 +4732,7 @@ textarea.form-control-lg {
   z-index: 3;
   border-color: #86b7fe;
   outline: 0;
-  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+  box-shadow: none !important;
 }
 
 .accordion-header {
@@ -11699,3 +11699,30 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+.checkbox {
+    height: 25px !important;
+    width: 50px !important;
+    margin-right: 10px;
+}
+
+.ta-short {
+    min-height: 100px !important;
+}
+.ta-long {
+    min-height: 150px !important;
+}
+
+.flex-form-visbility {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    align-content: flex-start;
+}
+
+.w-85 {
+    width: 85%;
+}
+

@@ -78,8 +78,14 @@ class HeaderController extends Controller
      */
     public function update(UpdateHeaderRequest $request, Header $header)
     {
-        $row = DB::transaction(function () use ($request, $header) {
-            return $header->update($request->validated());
+        $validated = $request->validated();
+
+        $validated['is_visible_webTitle'] = !$request->has('is_visible_webTitle') ? 0 : 1;
+        $validated['is_visible_about'] = !$request->has('is_visible_about') ? 0 : 1;
+        $validated['is_visible_contact'] = !$request->has('is_visible_contact') ? 0 : 1;
+
+        $row = DB::transaction(function () use ($validated, $header) {
+            return $header->update($validated);
         });
         return redirect()->route('header.index');
     }
