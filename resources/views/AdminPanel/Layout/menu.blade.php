@@ -15,7 +15,7 @@
 
                 <div class="sb-sidenav-menu-heading">Administrator</div>
                 <a class="nav-link" href="{{route('category.index')}}">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-star-sharp"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-star"></i></div>
                     Kategorie
                 </a>
                 <a class="nav-link" href="{{route('tag.index')}}">
@@ -25,11 +25,11 @@
 
                 <div class="sb-sidenav-menu-heading">Ustawienia witryny</div>
                 <a class="nav-link" href="{{route('footer.index')}}">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-screwdriver"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-gear"></i></div>
                     Stopka
                 </a>
                 <a class="nav-link" href="{{route('header.index')}}">
-                    <div class="sb-nav-link-icon"><i class="fa-solid fa-hammer"></i></div>
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-gear"></i></div>
                     Nagłówek
                 </a>
 {{--                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"--}}

@@ -8,6 +8,7 @@ use App\Models\Footer;
 use App\Models\Header;
 use App\Models\Post;
 use App\Models\Setting;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -25,13 +26,10 @@ class FrontController extends Controller
                 ->paginate(5)
         );
 
-        $header = Header::first();
-        $footer = Footer::first();
-
         return view('FrontViews.Sections.welcome', [
             'posts' => $posts,
-            'header' => $header,
-            'footer' => $footer,
+            'header' => Header::firstOrFail(),
+            'footer' => Footer::firstOrFail(),
         ]);
     }
     /**
@@ -41,11 +39,28 @@ class FrontController extends Controller
      */
     public function postDetail($slug)
     {
-        $post = new PostResource(Post::with('user')
+        $post = Post::with('user')
             ->where('slug', $slug)
             ->where('active', 1)
-            ->first());
+            ->first();
 
-        return view('FrontViews.Sections.post', ['post' => $post]);
+        return view('FrontViews.Sections.post', [
+            'post' => $post,
+            'header' => Header::firstOrFail(),
+            'footer' => Footer::firstOrFail()
+        ]);
+    }
+
+    public function userDetail($slug_name)
+    {
+        $user = User::with('posts')
+            ->where('slug_name', $slug_name)
+            ->first();
+
+        return view('FrontViews.Sections.user', [
+            'user' => $user,
+            'header' => Header::firstOrFail(),
+            'footer' => Footer::firstOrFail()
+        ]);
     }
 }

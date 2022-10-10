@@ -13,8 +13,8 @@
                 </a>
                 <p class="post-meta">
                     Opublikowane przez
-                    <a href="#!">{{$post->user->name}}</a>
-                    o {{$post->publication_date}}
+                    <a href="{{route('user.detail', $post->user->slug_name)}}">{{$post->user->name}}</a>
+                     {{ \Carbon\Carbon::parse($post->publication_date)->diffForHumans() }}
                 </p>
             </div>
 

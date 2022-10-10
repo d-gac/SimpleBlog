@@ -24,9 +24,12 @@ Route::get('/send', [HomeController::class, 'send'])->name('home.send');
 // Public
 Route::prefix('/')->group(function () {
 
-    Route::get('/', [FrontController::class, 'homePage'])->name('homePage');
-    Route::get('post/{slug}', [FrontController::class, 'postDetail'])->name('homePage');
-//    Route::get('/home', [HomeController::class, 'index'])->name('home'); //?
+    Route::controller(FrontController::class)->group(function () {
+        Route::get('/', 'homePage')->name('homePage');
+        Route::get('post/{slug}', 'postDetail')->name('post.detail');
+        Route::get('user/{slug_name}', 'userDetail')->name('user.detail');
+    });
+
     Auth::routes();
 
 });
@@ -36,11 +39,14 @@ Route::prefix('/')->group(function () {
 Route::middleware('auth')->prefix('/admin')->group(function () {
 
     Route::view('/', 'AdminPanel.Sections.dashboard')->name('admin.dashboard');
-    Route::resource('category', CategoryController::class);
-    Route::resource('tag', TagController::class);
-    Route::resource('post', PostController::class);
-    Route::resource('footer', FooterController::class);
-    Route::resource('header', HeaderController::class);
+
+    Route::resources([
+        'category' => CategoryController::class,
+        'tag' => TagController::class,
+        'post' => PostController::class,
+        'footer' => FooterController::class,
+        'header' => HeaderController::class,
+    ]);
 
 });
 
