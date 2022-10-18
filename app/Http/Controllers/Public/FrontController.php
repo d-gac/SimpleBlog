@@ -8,6 +8,7 @@ use App\Models\Footer;
 use App\Models\Header;
 use App\Models\Post;
 use App\Models\Setting;
+use App\Models\Tenant;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -20,6 +21,9 @@ class FrontController extends Controller
      */
     public function homePage()
     {
+//        $tenant1 = Tenant::create(['id' => 'testowa']);
+//        $tenant1->domains()->create(['domain' => 'testowa.localhost']);
+
         $posts = PostResource::collection(
             Post::with('user')
                 ->orderBy('publication_date','desc')
