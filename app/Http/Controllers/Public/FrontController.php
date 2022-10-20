@@ -21,8 +21,8 @@ class FrontController extends Controller
      */
     public function homePage()
     {
-//        $tenant1 = Tenant::create(['id' => 'tenant2']);
-//        $tenant1->domains()->create(['domain' => 'tenant2.localhost']);
+//        $tenant1 = Tenant::create(['id' => 'tenant3']);
+//        $tenant1->domains()->create(['domain' => 'tenant3.localhost']);
 
         $posts = PostResource::collection(
             Post::with('user')
