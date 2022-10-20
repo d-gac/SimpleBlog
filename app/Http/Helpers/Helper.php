@@ -21,7 +21,7 @@ class Helper extends Controller
         if(request()->image){
             $name = request()->file('image')->getClientOriginalName();
             $path = request()->file('image')->store('images', 'public');
-            $post->photo = '/storage/'.$path;
+            $post->photo = asset($path);
         } else {
             $post->photo = '';
         }
@@ -52,9 +52,9 @@ class Helper extends Controller
             $now = Str::slug(Carbon::now()->format('Y-m-d H:m:s'), '-');
             $filename =  'banner-'.$now.'.'.$extension;
 
-            $path = Storage::disk('public')->putFileAs('Banner' ,request()->file('banner_photo'), $filename);
+            $path = Storage::disk('public')->putFileAs('Banner', request()->file('banner_photo'), $filename);
 
-            $header->banner_photo = 'storage/'.$path;
+            $header->banner_photo = asset($path);
         }
     }
 }

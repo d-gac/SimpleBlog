@@ -42,7 +42,7 @@
         </div>
         <div class="form-floating mb-3">
             <input name="banner_photo" type="file" class="form-control" id="is_visible_github" style="padding-top: 2.125rem;">
-            <p class="my-3">Aktualne tło: /{{ old('banner_photo', $header->banner_photo) ?? 'Brak tła'}}</p>
+            <p class="my-3">Aktualne tło: {{ old('banner_photo', $header->banner_photo) ?? 'Brak tła'}}</p>
             <label for="banner_photo">Baner - Tło</label>
         </div>
         <div class="form-check form-switch me-3 mb-3">
