@@ -26,6 +26,8 @@ class FrontController extends Controller
 
         $posts = PostResource::collection(
             Post::with('user')
+                ->where('active', 1)
+                ->where('publication_date', '<', now())
                 ->orderBy('publication_date','desc')
                 ->paginate(5)
         );
@@ -57,12 +59,16 @@ class FrontController extends Controller
 
     public function userDetail($slug_name)
     {
-        $user = User::with('posts')
-            ->where('slug_name', $slug_name)
+        $user = User::where('slug_name', $slug_name)
             ->first();
+
+        $posts = Post::where('created_by', $user->id)
+            ->where('active', 1)
+            ->paginate(5);
 
         return view('FrontViews.Sections.user', [
             'user' => $user,
+            'posts' => $posts,
             'header' => Header::firstOrFail(),
             'footer' => Footer::firstOrFail()
         ]);

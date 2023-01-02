@@ -8,7 +8,7 @@
 
         <hr class="my-4"/>
 
-        @foreach($user->posts as $post)
+        @foreach($posts as $post)
 
 
             <a href="{{url('post/'.$post->slug)}}">
@@ -29,6 +29,9 @@
 
         @endforeach
 
+        <div class="d-flex justify-content-evenly">
+            {{$posts->links()}}
+        </div>
 
     </div>
 

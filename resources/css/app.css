@@ -11225,7 +11225,7 @@ header.masthead .post-heading .meta a {
     color: #0085A1;
 }
 .post-preview > a > .post-title {
-    font-size: 1.875rem;
+    /*font-size: 1.875rem;*/
     margin-top: 1.875rem;
     margin-bottom: 0.625rem;
 }
@@ -11244,7 +11244,7 @@ header.masthead .post-heading .meta a {
 }
 @media (min-width: 992px) {
     .post-preview > a > .post-title {
-        font-size: 2.25rem;
+        font-size: 1.75rem;
     }
 }
 
@@ -11258,4 +11258,8 @@ header.masthead .post-heading .meta a {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+}
+
+.page-link:focus {
+     box-shadow: none !important;
 }

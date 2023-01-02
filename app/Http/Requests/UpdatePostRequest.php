@@ -25,7 +25,7 @@ class UpdatePostRequest extends FormRequest
     {
         return [
             'title' => 'required|string|max:255',
-            'preview_content' => 'required|string|max:65535',
+            'preview_content' => 'required|string|max:512',
             'content' => 'required|string|max:65535',
             'active' => 'nullable|boolean',
             'publication_date' => 'required|date',
