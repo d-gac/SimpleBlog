@@ -15,6 +15,18 @@ class SettingSeeder extends Seeder
      */
     public function run()
     {
-       //
+        DB::table('settings')->insert(
+            array(
+
+                array(
+                    'contact_title' => 'Kontakt!',
+                    'contact_content' => 'Kontakt! - treść',
+                    'about_title' => 'O nas!',
+                    'about_content' => 'O nas! - treść',
+                ),
+
+            ),
+
+        );
     }
 }

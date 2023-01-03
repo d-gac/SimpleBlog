@@ -15,13 +15,10 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
-            $table->string('is_visible_webTitle')->default(0);
-            $table->string('webTitle')->nullable();
-            $table->string('banner_title')->nullable();
-            $table->string('banner_paragraph')->nullable();
-            $table->string('banner_photo')->nullable();
-            $table->string('is_visible_about')->default(0);
-            $table->string('is_visible_contact')->default(0);
+            $table->string('contact_title', 64)->nullable();
+            $table->text('contact_content')->nullable();
+            $table->string('about_title', 64)->nullable();
+            $table->text('about_content')->nullable();
             $table->timestamps();
         });
     }

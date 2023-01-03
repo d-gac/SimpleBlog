@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\FooterController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\HeaderController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TagController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Public\FrontController;
@@ -26,6 +27,8 @@ Route::prefix('/')->group(function () {
 
     Route::controller(FrontController::class)->group(function () {
         Route::get('/', 'homePage')->name('homePage');
+        Route::get('/about', 'aboutPage')->name('aboutPage');
+        Route::get('/contact', 'contactPage')->name('contactPage');
         Route::get('post/{slug}', 'postDetail')->name('post.detail');
         Route::get('user/{slug_name}', 'userDetail')->name('user.detail');
     });
@@ -46,6 +49,7 @@ Route::middleware('auth')->prefix('/admin')->group(function () {
         'post' => PostController::class,
         'footer' => FooterController::class,
         'header' => HeaderController::class,
+        'setting' => SettingController::class,
     ]);
 
 });

@@ -36,6 +36,8 @@ Route::middleware([
     // Public
     Route::controller(FrontController::class)->group(function () {
         Route::get('/', 'homePage')->name('homePage');
+        Route::get('/about', 'aboutPage')->name('aboutPage');
+        Route::get('/contact', 'contactPage')->name('contactPage');
         Route::get('post/{slug}', 'postDetail')->name('post.detail');
         Route::get('user/{slug_name}', 'userDetail')->name('user.detail');
     });

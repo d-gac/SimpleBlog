@@ -11,15 +11,9 @@ class Setting extends Model
 
     protected $table = 'settings';
     protected $fillable = [
-        'is_visible_twitter',
-        'is_visible_facebook',
-        'is_visible_github',
-        'is_visible_linkedin',
-        'is_visible_youtube',
-        'twitter',
-        'facebook',
-        'github',
-        'linkedin',
-        'youtube',
+        'contact_title',
+        'contact_content',
+        'about_title',
+        'about_content',
     ];
 }

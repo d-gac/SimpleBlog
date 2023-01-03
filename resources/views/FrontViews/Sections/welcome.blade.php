@@ -7,7 +7,7 @@
         @foreach($posts as $post)
 
             <div class="row">
-                <div class="col-md-7">
+                <div class={{$post->photo ? "col-md-7" : "col-md-12"}}>
                     <div class="post-preview">
                         <a href="{{url('post/'.$post->slug)}}">
                             <h4 class="post-title">{{$post->title}}</h4>
@@ -20,17 +20,19 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-5">
-                    @if($post->photo)
-                        <img class="img-thumbnail float-start mb-3 me-4" src="{{$post->photo}}" alt="{{$post->title}} - miniaturka">
-                    @endif
-                </div>
+                @if($post->photo)
+                    <div class="col-md-5">
+                        <img class="img-thumbnail float-start mb-3 me-4" src="{{$post->photo}}"
+                             alt="{{$post->title}} - miniaturka">
+                    </div>
+                @endif
+
+
+                @if(!$loop->last)
+                    <hr class="my-4"/>
+                @endif
+
             </div>
-
-            @if(!$loop->last)
-                <hr class="my-4"/>
-            @endif
-
 
         @endforeach
 

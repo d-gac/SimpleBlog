@@ -20,11 +20,11 @@ return new class extends Migration
             $table->integer('is_visible_github')->default(0);
             $table->integer('is_visible_linkedin')->default(0);
             $table->integer('is_visible_youtube')->default(0);
-            $table->string('twitter')->nullable();
-            $table->string('facebook')->nullable();
-            $table->string('github')->nullable();
-            $table->string('linkedin')->nullable();
-            $table->string('youtube')->nullable();
+            $table->string('twitter', 1024)->nullable();
+            $table->string('facebook', 1024)->nullable();
+            $table->string('github', 1024)->nullable();
+            $table->string('linkedin', 1024)->nullable();
+            $table->string('youtube', 1024)->nullable();
             $table->timestamps();
         });
     }

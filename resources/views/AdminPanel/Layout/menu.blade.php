@@ -32,6 +32,10 @@
                     <div class="sb-nav-link-icon"><i class="fa-solid fa-gear"></i></div>
                     Nagłówek
                 </a>
+                <a class="nav-link" href="{{route('setting.index')}}">
+                    <div class="sb-nav-link-icon"><i class="fa-solid fa-gear"></i></div>
+                    Podstrony
+                </a>
 {{--                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"--}}
 {{--                   aria-expanded="false" aria-controls="collapsePages">--}}
 {{--                    <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>--}}

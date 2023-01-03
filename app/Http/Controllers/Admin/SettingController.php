@@ -17,8 +17,8 @@ class SettingController extends Controller
      */
     public function index()
     {
-        return view('AdminPanel.Sections.Settings.index', [
-            'setting' => Setting::first(),
+        return view('AdminPanel.Sections.Setting.index', [
+            'setting' => Setting::first()
         ]);
     }
 
@@ -51,7 +51,7 @@ class SettingController extends Controller
      */
     public function show(Setting $setting)
     {
-        return view('AdminPanel.Sections.Settings.show', [
+        return view('AdminPanel.Sections.Setting.show', [
             'setting' => $setting,
         ]);
     }
@@ -64,7 +64,7 @@ class SettingController extends Controller
      */
     public function edit(Setting $setting)
     {
-        return view('AdminPanel.Sections.Settings.edit', [
+        return view('AdminPanel.Sections.Setting.edit', [
             'setting' => $setting,
         ]);
     }

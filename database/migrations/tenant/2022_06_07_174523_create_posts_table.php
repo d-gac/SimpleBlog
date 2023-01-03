@@ -15,8 +15,8 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->string('slug');
+            $table->string('title', 255);
+            $table->string('slug', 512);
             $table->text('preview_content');
             $table->text('content');
             $table->dateTime('publication_date');

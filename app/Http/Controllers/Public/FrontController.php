@@ -19,10 +19,10 @@ class FrontController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function homePage()
+    public function homePage(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-//        $tenant1 = Tenant::create(['id' => 'tenant3']);
-//        $tenant1->domains()->create(['domain' => 'tenant3.localhost']);
+//        $tenant1 = Tenant::create(['id' => 'tenant']);
+//        $tenant1->domains()->create(['domain' => 'tenant.localhost']);
 
         $posts = PostResource::collection(
             Post::with('user')
@@ -38,12 +38,35 @@ class FrontController extends Controller
             'footer' => Footer::firstOrFail(),
         ]);
     }
+
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function aboutPage(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
+        return view('FrontViews.Sections.about', [
+            'header' => Header::firstOrFail(),
+            'footer' => Footer::firstOrFail(),
+        ]);
+    }
+
+    /**
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function contactPage(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    {
+        return view('FrontViews.Sections.contact', [
+            'header' => Header::firstOrFail(),
+            'footer' => Footer::firstOrFail(),
+        ]);
+    }
+
     /**
      * Display a details of the post.
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function postDetail($slug)
+    public function postDetail($slug): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $post = Post::with('user')
             ->where('slug', $slug)
@@ -57,12 +80,17 @@ class FrontController extends Controller
         ]);
     }
 
-    public function userDetail($slug_name)
+    /**
+     * @param $slug_name
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function userDetail($slug_name): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $user = User::where('slug_name', $slug_name)
             ->first();
 
         $posts = Post::where('created_by', $user->id)
+            ->orderByDesc('publication_date')
             ->where('active', 1)
             ->paginate(5);
 
