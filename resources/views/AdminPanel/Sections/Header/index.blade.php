@@ -1,5 +1,9 @@
 @extends('AdminPanel.admin-main')
 
+@section('meta-title')
+    Ustawienia - Nagłówek
+@endsection
+
 @section('title')
     Ustawienia
 @endsection

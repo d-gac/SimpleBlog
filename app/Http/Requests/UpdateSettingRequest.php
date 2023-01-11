@@ -24,16 +24,10 @@ class UpdateSettingRequest extends FormRequest
     public function rules()
     {
         return [
-            'is_visible_twitter' => ['nullable', 'boolean'],
-            'is_visible_facebook' => ['nullable', 'boolean'],
-            'is_visible_github' => ['nullable', 'boolean'],
-            'is_visible_linkedin' => ['nullable', 'boolean'],
-            'is_visible_youtube' => ['nullable', 'boolean'],
-            'twitter' => ['nullable', 'required_if:is_visible_twitter,1', 'url', 'max:1024'],
-            'facebook' => ['nullable', 'required_if:is_visible_facebook,1', 'url', 'max:1024'],
-            'github' => ['nullable', 'required_if:is_visible_github,1', 'url', 'max:1024'],
-            'linkedin' => ['nullable', 'required_if:is_visible_linkedin,1', 'url', 'max:1024'],
-            'youtube' => ['nullable', 'required_if:is_visible_youtube,1', 'url', 'max:1024'],
+            'about_title' => ['required', 'string', 'max:64'],
+            'about_content' => ['required', 'string', 'max:16384'],
+            'contact_title' => ['required', 'string', 'max:64'],
+            'contact_content' => ['required', 'string', 'max:16384'],
         ];
     }
 }

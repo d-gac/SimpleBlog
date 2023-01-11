@@ -1,5 +1,9 @@
 @extends('AdminPanel.admin-main')
 
+@section('meta-title')
+    Ustawienia - Podstrony
+@endsection
+
 @section('title')
     Ustawienia
 @endsection
@@ -19,7 +23,9 @@
             </div>
 
             <div>
-                <button disabled onclick="return alert('Nie można dodać nowego elementu!')" class="btn btn-outline-success" style="padding: 0 20px;" href="{{route('setting.create')}}">Dodaj <i
+                <button disabled onclick="return alert('Nie można dodać nowego elementu!')"
+                        class="btn btn-outline-success" style="padding: 0 20px;" href="{{route('setting.create')}}">
+                    Dodaj <i
                         class='fa fa-plus-square'></i></button>
             </div>
         </div>
@@ -42,23 +48,29 @@
                     <th>O nas - treść</th>
                 </tr>
                 </tfoot>
-                <tbody>
+                @if($settings->is_visible_contact || $settings->is_visible_about)
+                    <tbody>
                     <tr>
-                        <td class="w-25">{{$setting->contact_title ?? 'Brak'}}</td>
-                        <td class="w-25">{{$setting->contact_content ?? 'Brak'}}</td>
-                        <td class="w-25">{{$setting->about_title ?? 'Brak'}}</td>
-                        <td class="w-25">{{$setting->about_content ?? 'Brak'}}</td>
+                        <td class="w-25">{{\Illuminate\Support\Str::words($setting->contact_title, 25) ?? 'Brak'}}</td>
+                        <td class="w-25">{{\Illuminate\Support\Str::words($setting->contact_content, 40) ?? 'Brak'}}</td>
+                        <td class="w-25">{{\Illuminate\Support\Str::words($setting->about_title, 25) ?? 'Brak'}}</td>
+                        <td class="w-25">{{\Illuminate\Support\Str::words($setting->about_content, 40) ?? 'Brak'}}</td>
                         <td class="d-flex flex-row bd-highlight">
-                            <a class="btn btn-outline-success" href="{{route('setting.show', $setting->id)}}"><i class='fa fa-file-text'></i></a>
-                            <a class="btn btn-outline-primary ms-1" href="{{route('setting.edit', $setting->id)}}"><i class='fa fa-edit'></i></a>
+                            <a class="btn btn-outline-success" href="{{route('setting.show', $setting->id)}}"><i
+                                    class='fa fa-file-text'></i></a>
+                            <a class="btn btn-outline-primary ms-1" href="{{route('setting.edit', $setting->id)}}"><i
+                                    class='fa fa-edit'></i></a>
                             <form action="{{route('setting.destroy',$setting->id)}}" method="POST">
                                 @method('DELETE')
                                 @csrf
-                                <button disabled onclick="return alert('Nie można usunąć tego elementu!')" class="btn btn-outline-danger ms-1" type="submit"><i class="fa fa-trash"></i></button>
+                                <button disabled onclick="return alert('Nie można usunąć tego elementu!')"
+                                        class="btn btn-outline-danger ms-1" type="submit"><i class="fa fa-trash"></i>
+                                </button>
                             </form>
                         </td>
                     </tr>
-                </tbody>
+                    </tbody>
+                @endif
             </table>
         </div>
     </div>

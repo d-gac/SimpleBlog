@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Footer;
 use App\Http\Requests\StoreFooterRequest;
 use App\Http\Requests\UpdateFooterRequest;
+use App\Models\Header;
 use Illuminate\Support\Facades\DB;
 
 class FooterController extends Controller
@@ -18,7 +19,7 @@ class FooterController extends Controller
     public function index()
     {
         return view('AdminPanel.Sections.Footer.index', [
-            'footer' => Footer::first(),
+            'footer' => Footer::first()
         ]);
     }
 

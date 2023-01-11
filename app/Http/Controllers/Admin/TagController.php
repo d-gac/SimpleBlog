@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\TagResource;
+use App\Models\Header;
 use App\Models\Tag;
 use App\Http\Requests\StoreTagRequest;
 use App\Http\Requests\UpdateTagRequest;
@@ -20,7 +21,7 @@ class TagController extends Controller
     public function index()
     {
         return view('AdminPanel.Sections.Tag.index', [
-            'tags' => TagResource::collection(Tag::get()),
+            'tags' => TagResource::collection(Tag::get())
         ]);
     }
 

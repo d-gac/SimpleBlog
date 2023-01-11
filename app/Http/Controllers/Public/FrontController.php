@@ -10,6 +10,7 @@ use App\Models\Post;
 use App\Models\Setting;
 use App\Models\Tenant;
 use App\Models\User;
+use Hamcrest\Core\Set;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -47,6 +48,7 @@ class FrontController extends Controller
         return view('FrontViews.Sections.about', [
             'header' => Header::firstOrFail(),
             'footer' => Footer::firstOrFail(),
+            'content' => Setting::firstOrFail()
         ]);
     }
 

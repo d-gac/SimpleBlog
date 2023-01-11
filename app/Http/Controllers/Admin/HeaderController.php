@@ -18,7 +18,7 @@ class HeaderController extends Controller
     public function index()
     {
         return view('AdminPanel.Sections.Header.index', [
-            'header' => Header::first(),
+            'header' => Header::first()
         ]);
     }
 

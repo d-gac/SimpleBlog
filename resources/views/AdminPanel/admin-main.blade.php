@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
-    <title>@yield('title')</title>
+    <title>@yield('meta-title')</title>
     @include('AdminPanel.import.import-head')
 </head>
 <body class="sb-nav-fixed">

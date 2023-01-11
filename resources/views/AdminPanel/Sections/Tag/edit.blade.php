@@ -1,5 +1,9 @@
 @extends('AdminPanel.admin-main')
 
+@section('meta-title')
+    Tagi - Edycja - {{$tag->name}}
+@endsection
+
 @section('title')
     Tagi
 @endsection

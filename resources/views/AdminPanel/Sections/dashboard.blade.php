@@ -1,11 +1,15 @@
 @extends('AdminPanel.admin-main')
 
+@section('meta-title')
+    Strona główna
+@endsection
+
 @section('title')
-    Dashboard
+    Strona główna
 @endsection
 
 @section('subtitle')
-    Dashboard
+    Strona główna
 @endsection
 
 @section('dashboard')

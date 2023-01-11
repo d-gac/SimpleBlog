@@ -7,6 +7,7 @@ use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use App\Models\Header;
 use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
@@ -19,7 +20,7 @@ class CategoryController extends Controller
     public function index()
     {
         return view('AdminPanel.Sections.Category.index', [
-            'categories' => CategoryResource::collection(Category::get()),
+            'categories' => CategoryResource::collection(Category::get())
         ]);
     }
 

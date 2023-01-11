@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\SettingResource;
+use App\Models\Header;
 use App\Models\Setting;
 use App\Http\Requests\StoreSettingRequest;
 use App\Http\Requests\UpdateSettingRequest;
@@ -18,7 +20,9 @@ class SettingController extends Controller
     public function index()
     {
         return view('AdminPanel.Sections.Setting.index', [
-            'setting' => Setting::first()
+//            'setting' => new SettingResource(Setting::first()),
+            'setting' => Setting::first(),
+            'settings' => Header::first(),
         ]);
     }
 

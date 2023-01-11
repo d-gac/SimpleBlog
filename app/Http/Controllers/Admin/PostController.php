@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
 use App\Models\Category;
+use App\Models\Header;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
@@ -21,7 +22,9 @@ class PostController extends Controller
     public function index()
     {
         $posts = PostResource::collection(Post::all());
-        return view('AdminPanel.Sections.Post.index', ['posts' => $posts]);
+        return view('AdminPanel.Sections.Post.index', [
+            'posts' => $posts
+        ]);
     }
 
     /**
