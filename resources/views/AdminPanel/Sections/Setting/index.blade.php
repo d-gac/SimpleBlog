@@ -34,18 +34,20 @@
             <table id="datatablesSimple">
                 <thead>
                 <tr>
-                    <th>Kontakt - tytuł</th>
-                    <th>Kontakt - treść</th>
-                    <th>O nas - tytuł</th>
-                    <th>O nas - treść</th>
+                    <th class="w-20">Kontakt - tytuł</th>
+                    <th class="w-20">Kontakt - treść</th>
+                    <th class="w-20">O nas - tytuł</th>
+                    <th class="w-20">O nas - treść</th>
+                    <th class="w-20">Operacje</th>
                 </tr>
                 </thead>
                 <tfoot>
                 <tr>
-                    <th>Kontakt - tytuł</th>
-                    <th>Kontakt - treść</th>
-                    <th>O nas - tytuł</th>
-                    <th>O nas - treść</th>
+                    <th class="w-20">Kontakt - tytuł</th>
+                    <th class="w-20">Kontakt - treść</th>
+                    <th class="w-20">O nas - tytuł</th>
+                    <th class="w-20">O nas - treść</th>
+                    <th class="w-20"`>Operacje</th>
                 </tr>
                 </tfoot>
                 @if($settings->is_visible_contact || $settings->is_visible_about)

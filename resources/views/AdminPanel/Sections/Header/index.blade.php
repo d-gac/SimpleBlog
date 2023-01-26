@@ -38,6 +38,7 @@
                     <th>Banner - grafika</th>
                     <th>Podstrona "O nas"</th>
                     <th>Podstrona "O Kontakt"</th>
+                    <th>Operacje</th>
                 </tr>
                 </thead>
                 <tfoot>
@@ -48,6 +49,7 @@
                     <th>Banner - grafika</th>
                     <th>Podstrona "O nas"</th>
                     <th>Podstrona "O Kontakt"</th>
+                    <th>Operacje</th>
                 </tr>
                 </tfoot>
                 <tbody>

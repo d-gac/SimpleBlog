@@ -60,6 +60,7 @@ class FrontController extends Controller
         return view('FrontViews.Sections.contact', [
             'header' => Header::firstOrFail(),
             'footer' => Footer::firstOrFail(),
+            'content' => Setting::firstOrFail()
         ]);
     }
 
