@@ -6,6 +6,7 @@ use App\Http\Requests\StoreInstanceRequest;
 use App\Http\Requests\UpdateInstanceRequest;
 use App\Http\Resources\InstanceResource;
 use App\Models\Instance;
+use App\Models\Tenant;
 use Illuminate\Support\Facades\DB;
 
 class InstanceController extends Controller
@@ -35,7 +36,7 @@ class InstanceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreInstanceRequest  $request
+     * @param \App\Http\Requests\StoreInstanceRequest $request
      * @return \Illuminate\Http\RedirectResponse
      */
     public function store(StoreInstanceRequest $request)
@@ -43,46 +44,53 @@ class InstanceController extends Controller
         $row = DB::transaction(function () use ($request) {
             return Instance::create($request->validated());
         });
+
+        if ($row) {
+            //instance create trigger
+            $tenant = Tenant::create(['id' => $request->domain_slug]);
+            $tenant->domains()->create(['domain' => $request->domain_slug . '.localhost']);
+        }
+
         return redirect()->route('instance.index');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Instance  $instance
-     * @return \Illuminate\Http\Response
+     * @param \App\Models\Instance $instance
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function show(Instance $instance)
     {
         return view('AdminPanel.Sections.Instance.show', [
-            'Instance' => $Instance,
+            'instance' => $instance,
         ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Instance  $instance
-     * @return \Illuminate\Http\Response
+     * @param \App\Models\Instance $instance
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function edit(Instance $instance)
     {
         return view('AdminPanel.Sections.Instance.edit', [
-            'Instance' => $Instance,
+            'instance' => $instance,
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateInstanceRequest  $request
-     * @param  \App\Models\Instance  $instance
-     * @return \Illuminate\Http\Response
+     * @param \App\Http\Requests\UpdateInstanceRequest $request
+     * @param \App\Models\Instance $instance
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(UpdateInstanceRequest $request, Instance $instance)
     {
-        $row = DB::transaction(function () use ($request, $Instance) {
-            return $Instance->update($request->validated());
+        $row = DB::transaction(function () use ($request, $instance) {
+            return $instance->update($request->validated());
         });
         return redirect()->route('instance.index');
     }
@@ -90,13 +98,13 @@ class InstanceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Instance  $instance
-     * @return \Illuminate\Http\Response
+     * @param \App\Models\Instance $instance
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy(Instance $instance)
     {
-        $row = DB::transaction(function () use ($Instance) {
-            return $Instance->delete();
+        $row = DB::transaction(function () use ($instance) {
+            return $instance->delete();
         });
         return redirect()->route('instance.index');
     }

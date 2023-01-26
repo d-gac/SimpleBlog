@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class StoreInstanceRequest extends FormRequest
 {
@@ -25,9 +26,21 @@ class StoreInstanceRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'domain' => 'required|string|max:255',
-            'active' => 'required|boolean',
+            'domain' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:255',
+            'active' => 'nullable|boolean',
             'description' => 'nullable|string|max:1024',
         ];
+    }
+
+    /**
+     * Prepare the data for validation.
+     *
+     * @return void
+     */
+    protected function prepareForValidation()
+    {
+        $this->merge([
+            'domain_slug' => Str::slug($this->domain),
+        ]);
     }
 }

@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('name',255);
             $table->string('domain', 255);
-            $table->string('description', 1024)->nullable()->default('Domyślny opis.');
-            $table->boolean('active')->default(1);
+            $table->string('description', 1024)->default('Domyślny opis.');
+            $table->boolean('active')->default(0);
             $table->timestamps();
         });
     }
