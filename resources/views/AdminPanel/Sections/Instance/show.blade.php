@@ -29,7 +29,7 @@
         </div>
         <div class="form-floating mb-3">
             <input disabled name="domain" type="text" class="form-control" id="domain" value="{{old('domain', $instance->domain)}}"  placeholder="Domena..."/>
-            <label for="preview_content">Domena (tylko subdomena)</label>
+            <label for="preview_content">Domena</label>
         </div>
         <div class="form-floating mb-3">
             <textarea disabled name="description" type="text" class="form-control ta-long" id="description" placeholder="Opis...">{{old('description', $instance->description)}}</textarea>

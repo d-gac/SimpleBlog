@@ -4,10 +4,12 @@ namespace App\Providers;
 
 use App\Models\Category;
 use App\Models\Header;
+use App\Models\Instance;
 use App\Models\Post;
 use App\Models\Tag;
 use App\Observers\CategoryObserver;
 use App\Observers\HeaderObserver;
+use App\Observers\InstanceObserver;
 use App\Observers\PostObserver;
 use App\Observers\TagObserver;
 use Illuminate\Auth\Events\Registered;
@@ -39,6 +41,7 @@ class EventServiceProvider extends ServiceProvider
         Category::observe(CategoryObserver::class);
         Tag::observe(TagObserver::class);
         Header::observe(HeaderObserver::class);
+        Instance::observe(InstanceObserver::class);
     }
 
     /**

@@ -53,7 +53,8 @@ Route::middleware('auth')->prefix('/admin')->group(function () {
         'setting' => SettingController::class,
     ]);
 
-    Route::resource('instance', InstanceController::class)->middleware('isSystemInstance');
+    Route::resource('instance', InstanceController::class)
+        ->middleware('isSystemInstance');
 
 });
 

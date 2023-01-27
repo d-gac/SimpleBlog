@@ -51,7 +51,7 @@
                 @foreach($instances as $instance)
                     <tr>
                         <td class="w-20">{{$instance->name}}</td>
-                        <td class="w-20">{{$instance->domain}}</td>
+                        <td class="w-20"><a href="http://{{$instance->domain}}" target="_blank">{{$instance->domain}}</a></td>
                         <td class="w-20">{{$instance->description}}</td>
                         <td>{{$instance->active}}</td>
                         <td class="d-flex flex-row bd-highlight test">

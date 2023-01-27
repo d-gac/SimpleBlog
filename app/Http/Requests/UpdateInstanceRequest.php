@@ -25,7 +25,6 @@ class UpdateInstanceRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'domain' => 'required|string|max:255',
             'active' => 'required|boolean',
             'description' => 'nullable|string|max:1024',
         ];

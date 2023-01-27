@@ -42,13 +42,19 @@ class InstanceController extends Controller
     public function store(StoreInstanceRequest $request)
     {
         $row = DB::transaction(function () use ($request) {
-            return Instance::create($request->validated());
+            $validated = $request->validated();
+            $validated['domain'] = $request->domain_slug;
+            return Instance::create($validated);
         });
 
         if ($row) {
             //instance create trigger
             $tenant = Tenant::create(['id' => $request->domain_slug]);
-            $tenant->domains()->create(['domain' => $request->domain_slug . '.localhost']);
+            $tenant->domains()->create(['domain' => $request->domain_slug]);
+
+            if (!$request->active) {
+                $tenant->putDownForMaintenance();
+            }
         }
 
         return redirect()->route('instance.index');
@@ -92,6 +98,16 @@ class InstanceController extends Controller
         $row = DB::transaction(function () use ($request, $instance) {
             return $instance->update($request->validated());
         });
+
+        if ($row) {
+            $tenant = tenancy()->find($instance->domain);
+            if (!$request->active) {
+                $tenant->putDownForMaintenance();
+            } else {
+                $tenant->update(['maintenance_mode' => null]);
+            }
+        }
+
         return redirect()->route('instance.index');
     }
 
@@ -106,6 +122,12 @@ class InstanceController extends Controller
         $row = DB::transaction(function () use ($instance) {
             return $instance->delete();
         });
+
+        if ($row){
+            $tenant = tenancy()->find($instance->domain);
+            $tenant->delete();
+        }
+
         return redirect()->route('instance.index');
     }
 }

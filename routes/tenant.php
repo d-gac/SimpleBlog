@@ -30,6 +30,7 @@ Route::middleware([
     'web',
     InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class,
+    'CheckTenantForMaintenanceMode',
 ])->group(function () {
 
     // Public
@@ -56,7 +57,8 @@ Route::middleware([
             'setting' => SettingController::class,
         ]);
 
-        Route::resource('instance', InstanceController::class)->middleware('isSystemInstance');
+        Route::resource('instance', InstanceController::class)
+            ->middleware('isSystemInstance');
     });
 
 });

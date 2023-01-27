@@ -27,7 +27,7 @@ class UpdateHeaderRequest extends FormRequest
             'webTitle' => ['nullable', 'required_if:is_visible_webTitle,1', 'string', 'max:255'],
             'banner_title' => ['nullable', 'string', 'max:255'],
             'banner_paragraph' => ['nullable', 'string', 'max:255'],
-            'banner_photo' => ['nullable', 'file', 'max:4096'],
+            'banner_photo' => ['nullable', 'file', 'max:8192'],
             'is_visible_webTitle' => ['nullable', 'boolean'],
             'is_visible_about' => ['nullable', 'boolean'],
             'is_visible_contact' => ['nullable', 'boolean'],

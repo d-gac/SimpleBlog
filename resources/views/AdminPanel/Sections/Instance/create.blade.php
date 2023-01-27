@@ -28,7 +28,7 @@
         </div>
         <div class="form-floating mb-3">
             <input required name="domain" type="text" class="form-control" id="domain" value="{{old('domain')}}"  placeholder="Domena..."/>
-            <label for="preview_content">Domena (tylko subdomena)</label>
+            <label for="preview_content">Domena</label>
         </div>
         <div class="form-floating mb-3">
             <textarea name="description" type="text" class="form-control ta-long" id="description" placeholder="Opis...">{{old('description')}}</textarea>
