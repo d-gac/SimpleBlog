@@ -22,9 +22,6 @@ class FrontController extends Controller
      */
     public function homePage(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-//        $tenant1 = Tenant::create(['id' => 'tenant']);
-//        $tenant1->domains()->create(['domain' => 'tenant.localhost']);
-
         $posts = PostResource::collection(
             Post::with('user')
                 ->where('active', 1)

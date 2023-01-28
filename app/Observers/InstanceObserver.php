@@ -16,12 +16,7 @@ class InstanceObserver
      */
     public function creating(Instance $instance)
     {
-//        $tenant = Tenant::create(['id' => request()->domain_slug]);
-//        $tenant->domains()->create(['domain' => request()->domain_slug]);
-//
-//        if (!$instance->active) {
-//            $tenant->putDownForMaintenance();
-//        }
+        //
     }
 
     /**
@@ -43,12 +38,7 @@ class InstanceObserver
      */
     public function updating(Instance $instance)
     {
-//        $tenant = tenancy()->find($instance->domain);
-//        if (!$instance->active) {
-//            $tenant->putDownForMaintenance();
-//        } else {
-//            $tenant->update(['maintenance_mode' => null]);
-//        }
+        //
     }
 
     /**
@@ -59,7 +49,12 @@ class InstanceObserver
      */
     public function updated(Instance $instance)
     {
-        //
+        $tenant = tenancy()->find($instance->domain);
+        if (!$instance->active) {
+            $tenant->putDownForMaintenance();
+        } else {
+            $tenant->update(['maintenance_mode' => null]);
+        }
     }
 
     /**

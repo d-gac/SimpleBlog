@@ -98,16 +98,6 @@ class InstanceController extends Controller
         $row = DB::transaction(function () use ($request, $instance) {
             return $instance->update($request->validated());
         });
-
-        if ($row) {
-            $tenant = tenancy()->find($instance->domain);
-            if (!$request->active) {
-                $tenant->putDownForMaintenance();
-            } else {
-                $tenant->update(['maintenance_mode' => null]);
-            }
-        }
-
         return redirect()->route('instance.index');
     }
 

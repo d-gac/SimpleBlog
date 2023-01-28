@@ -41,7 +41,7 @@ class StoreInstanceRequest extends FormRequest
     protected function prepareForValidation()
     {
         $this->merge([
-            'domain_slug' => Str::slug($this->domain).'.'.env('APP_URL_ONLY', 'localhost2')
+            'domain_slug' => Str::slug($this->domain).'.'.env('APP_URL_ONLY', 'localhost')
         ]);
     }
 }
