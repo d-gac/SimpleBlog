@@ -2,10 +2,13 @@
 
 namespace App\Providers;
 
+use App\Models\Footer;
+use App\Models\Header;
 use App\Models\Post;
 use App\Observers\PostObserver;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,5 +30,9 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
+        View::share([
+            'header' => Header::firstOrFail(),
+            'footer' => Footer::firstOrFail(),
+        ]);
     }
 }

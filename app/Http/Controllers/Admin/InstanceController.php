@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreInstanceRequest;
 use App\Http\Requests\UpdateInstanceRequest;
 use App\Http\Resources\InstanceResource;

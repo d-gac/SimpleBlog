@@ -60,7 +60,7 @@
                         </li>
                     @endif
                 </ul>
-                <div class="small text-center text-muted fst-italic">Copyright &copy; Dariusz Gac 2022</div>
+                <div class="small text-center text-muted fst-italic">Copyright &copy; Dariusz Gac - Simple Blog</div>
             </div>
         </div>
     </div>

@@ -31,9 +31,7 @@ class FrontController extends Controller
         );
 
         return view('FrontViews.Sections.welcome', [
-            'posts' => $posts,
-            'header' => Header::firstOrFail(),
-            'footer' => Footer::firstOrFail(),
+            'posts' => $posts
         ]);
     }
 
@@ -43,8 +41,6 @@ class FrontController extends Controller
     public function aboutPage(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view('FrontViews.Sections.about', [
-            'header' => Header::firstOrFail(),
-            'footer' => Footer::firstOrFail(),
             'content' => Setting::firstOrFail()
         ]);
     }
@@ -55,8 +51,6 @@ class FrontController extends Controller
     public function contactPage(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         return view('FrontViews.Sections.contact', [
-            'header' => Header::firstOrFail(),
-            'footer' => Footer::firstOrFail(),
             'content' => Setting::firstOrFail()
         ]);
     }
@@ -75,8 +69,6 @@ class FrontController extends Controller
 
         return view('FrontViews.Sections.post', [
             'post' => $post,
-            'header' => Header::firstOrFail(),
-            'footer' => Footer::firstOrFail()
         ]);
     }
 
@@ -97,8 +89,6 @@ class FrontController extends Controller
         return view('FrontViews.Sections.user', [
             'user' => $user,
             'posts' => $posts,
-            'header' => Header::firstOrFail(),
-            'footer' => Footer::firstOrFail()
         ]);
     }
 }

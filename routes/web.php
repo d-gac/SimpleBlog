@@ -6,8 +6,7 @@ use App\Http\Controllers\Admin\HeaderController;
 use App\Http\Controllers\Admin\PostController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\TagController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\InstanceController;
+use App\Http\Controllers\Admin\InstanceController;
 use App\Http\Controllers\Public\FrontController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +20,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/send', [HomeController::class, 'send'])->name('home.send');
 
 // Public
 Route::prefix('/')->group(function () {

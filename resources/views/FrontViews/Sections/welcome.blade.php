@@ -1,4 +1,4 @@
-@extends('FrontViews.front-main')
+@extends('FrontViews.front-main', ['test' => '231312dsada sdasdasdasdasdsada'])
 
 @section('content')
 
