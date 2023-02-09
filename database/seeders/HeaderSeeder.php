@@ -23,7 +23,7 @@ class HeaderSeeder extends Seeder
                     'webTitle' => 'Simple Blog',
                     'banner_title' => 'Tytuł w banerze',
                     'banner_paragraph' => 'Treść w banerze',
-                    'banner_photo' => '/testowanie',
+                    'banner_photo' => null,
                     'is_visible_about' => 1,
                     'is_visible_contact' => 1,
                 ),

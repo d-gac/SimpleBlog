@@ -1,5 +1,11 @@
 @extends('FrontViews.front-main')
 
+@section('title')
+
+    {{$post->title}}
+
+@endsection
+
 @section('content')
 
     <div class="post-preview">

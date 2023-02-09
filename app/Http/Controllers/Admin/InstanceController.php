@@ -50,7 +50,12 @@ class InstanceController extends Controller
 
         if ($row) {
             //instance create trigger
-            $tenant = Tenant::create(['id' => $request->domain_slug]);
+            $tenant = Tenant::create(
+                [
+                'id' => $request->domain_slug,
+                'tenant_name' => $request->name,
+                ]
+            );
             $tenant->domains()->create(['domain' => $request->domain_slug]);
 
             if (!$request->active) {
@@ -99,6 +104,20 @@ class InstanceController extends Controller
         $row = DB::transaction(function () use ($request, $instance) {
             return $instance->update($request->validated());
         });
+
+        if ($row) {
+
+            $tenant = Tenant::where('id', $instance->domain)->first();
+
+            $tenant->update(
+                [
+                    'id' => $instance->domain,
+                    'tenant_name' => $request->name,
+                ]
+            );
+
+        }
+
         return redirect()->route('instance.index');
     }
 

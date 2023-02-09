@@ -1,11 +1,7 @@
 @extends('AdminPanel.admin-main')
 
-@section('meta-title')
-    Wpisy
-@endsection
-
 @section('title')
-    Wpisy
+    Lista wpisów
 @endsection
 
 @section('subtitle')

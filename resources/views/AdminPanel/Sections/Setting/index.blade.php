@@ -1,11 +1,7 @@
 @extends('AdminPanel.admin-main')
 
-@section('meta-title')
-    Ustawienia - Podstrony
-@endsection
-
 @section('title')
-    Ustawienia
+    Podstrony
 @endsection
 
 @section('subtitle')

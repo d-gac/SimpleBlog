@@ -1,9 +1,5 @@
 @extends('AdminPanel.admin-main')
 
-@section('meta-title')
-    Strona główna
-@endsection
-
 @section('title')
     Strona główna
 @endsection

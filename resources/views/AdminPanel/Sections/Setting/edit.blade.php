@@ -1,16 +1,11 @@
 @extends('AdminPanel.admin-main')
 
-@section('meta-title')
-    Ustawienia - Nagłówek - Edycja
-@endsection
-
-
 @section('title')
-    Ustawienia
+    Edytuj podstrony
 @endsection
 
 @section('subtitle')
-    Ustawienia / Nagłówek / Edycja
+    Ustawienia / Podstrony / Edycja
 @endsection
 
 @section('dashboard')

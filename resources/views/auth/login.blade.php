@@ -1,54 +1,80 @@
 @extends('auth.auth-main')
 
 @section('title')
-    Login
+
+    Logowanie
+
 @endsection
 
 @section('content')
-    <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+
+    <div class="card-header">
+
+        <h3 class="text-center font-weight-light my-4">Logowanie</h3>
+
+    </div>
+
     <div class="card-body">
+
         <form method="POST" action="{{ route('login') }}">
+
             @csrf
+
             <div class="form-floating mb-3">
-                <input name="email" class="form-control @error('email') is-invalid @enderror" id="email" type="email"
-                       placeholder="nazwa@domena.pl" value="{{ old('email') }}" required autocomplete="email"
+
+                <input name="email" id="email" type="email" placeholder="nazwa@domena.pl"
+                       value="{{ old('email') }}"
+                       class="form-control @error('email') is-invalid @enderror"
+                       required
+                       autocomplete="email"
                        autofocus/>
+
                 <label for="email">Email</label>
+
                 @error('email')
-                <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+
+                    <span class="invalid-feedback" role="alert">
+
+                        <strong>{{ $message }}</strong>
+
+                    </span>
+
                 @enderror
+
             </div>
 
             <div class="form-floating mb-3">
-                <input name="password" class="form-control @error('password') is-invalid @enderror" id="password"
-                       type="password" placeholder="Hasło" value="{{ old('password') }}" required
-                       autocomplete="current-password"/>
+
+                <input name="password" id="password" type="password" placeholder="Hasło"
+                       value="{{ old('password') }}"
+                       class="form-control @error('password') is-invalid @enderror"
+                       required
+                       autocomplete="password"/>
+
                 <label for="password">Hasło</label>
+
                 @error('password')
-                <span class="invalid-feedback" role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
+
+                    <span class="invalid-feedback" role="alert">
+
+                        <strong>{{ $message }}</strong>
+
+                    </span>
+
                 @enderror
+
             </div>
 
+            @include('auth.components.remember-me-button')
 
-            <div class="form-check mb-3">
-                <input class="form-check-input" name="remember" id="remember"
-                       type="checkbox" {{ old('remember') ? 'checked' : '' }} />
-                <label class="form-check-label" for="remember">Pamiętaj mnie</label>
-            </div>
+            @include('auth.components.login-confirm-button')
 
-            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
-                @if (Route::has('password.request'))
-                    <a class="small" href="{{ route('password.request') }}">Zapomniałeś hasła?</a>
-                @endif
-            </div>
+            @include('auth.components.forget-password-button')
 
         </form>
+
     </div>
-    <div class="card-footer text-center py-3">
-        <div class="small"><a href="{{route('register')}}">Nie masz konta? Zarejestruj się teraz!</a></div>
-    </div>
+
+    @include('auth.components.register-button')
+
 @endsection

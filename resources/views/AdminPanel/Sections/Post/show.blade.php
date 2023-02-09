@@ -1,7 +1,7 @@
 @extends('AdminPanel.admin-main')
 
 @section('title')
-    Wpisy
+    Wpis
 @endsection
 
 @section('subtitle')

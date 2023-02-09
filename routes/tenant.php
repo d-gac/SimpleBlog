@@ -41,7 +41,8 @@ Route::middleware([
         Route::get('post/{slug}', 'postDetail')->name('post.detail');
         Route::get('user/{slug_name}', 'userDetail')->name('user.detail');
     });
-    Auth::routes();
+
+    Auth::routes(['register' => false]);
 
 // Authorized
     Route::middleware('auth')->prefix('/admin')->group(function () {

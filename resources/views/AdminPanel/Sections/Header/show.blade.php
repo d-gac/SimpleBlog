@@ -1,7 +1,7 @@
 @extends('AdminPanel.admin-main')
 
 @section('title')
-    Ustawienia
+    Nagłówek
 @endsection
 
 @section('subtitle')

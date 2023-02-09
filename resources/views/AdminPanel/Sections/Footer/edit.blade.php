@@ -1,7 +1,7 @@
 @extends('AdminPanel.admin-main')
 
 @section('title')
-    Ustawienia
+    Edytuj stopkę
 @endsection
 
 @section('subtitle')

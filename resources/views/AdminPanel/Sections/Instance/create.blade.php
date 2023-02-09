@@ -1,11 +1,7 @@
 @extends('AdminPanel.admin-main')
 
-@section('meta-title')
-    Instancje - Dodaj
-@endsection
-
 @section('title')
-    Instancje
+    Dodaj instancję
 @endsection
 
 @section('subtitle')

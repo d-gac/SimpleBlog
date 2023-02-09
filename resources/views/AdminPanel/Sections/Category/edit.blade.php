@@ -1,7 +1,7 @@
 @extends('AdminPanel.admin-main')
 
 @section('title')
-    Kategorie
+    Edycja kategorii
 @endsection
 
 @section('subtitle')

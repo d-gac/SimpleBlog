@@ -32,7 +32,7 @@ Route::prefix('/')->group(function () {
         Route::get('user/{slug_name}', 'userDetail')->name('user.detail');
     });
 
-    Auth::routes();
+    Auth::routes(['register' => false]);
 
 });
 

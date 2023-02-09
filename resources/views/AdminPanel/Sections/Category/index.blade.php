@@ -1,11 +1,7 @@
 @extends('AdminPanel.admin-main')
 
-@section('meta-title')
-    Kategorie
-@endsection
-
 @section('title')
-    Kategorie
+    Lista kategorii
 @endsection
 
 @section('subtitle')

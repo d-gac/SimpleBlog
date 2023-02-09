@@ -1,11 +1,7 @@
 @extends('AdminPanel.admin-main')
 
-@section('meta-title')
-    Tagi - {{$tag->name}}
-@endsection
-
 @section('title')
-    Tagi
+    Tag
 @endsection
 
 @section('subtitle')

@@ -1,5 +1,11 @@
 @extends('FrontViews.front-main', ['test' => '231312dsada sdasdasdasdasdsada'])
 
+@section('title')
+
+    Strona główna
+
+@endsection
+
 @section('content')
 
     @if($posts->count())

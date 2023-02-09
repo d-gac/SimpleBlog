@@ -1,5 +1,11 @@
 @extends('FrontViews.front-main')
 
+@section('title')
+
+    O nas
+
+@endsection
+
 @section('content')
 
     <h2>{{$content->about_title ?? 'O nas - tytuł'}}</h2>
