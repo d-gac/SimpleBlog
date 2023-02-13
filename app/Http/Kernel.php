@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\isSystemInstance;
+use App\Http\Middleware\TenantComponents;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -65,6 +66,7 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'isSystemInstance' => isSystemInstance::class,
+        'tenantComponents' => TenantComponents::class,
         'CheckTenantForMaintenanceMode' => \Stancl\Tenancy\Middleware\CheckTenantForMaintenanceMode::class,
     ];
 }

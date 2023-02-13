@@ -30,9 +30,5 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         Paginator::useBootstrap();
-        View::share([
-            'header' => Header::firstOrFail(),
-            'footer' => Footer::firstOrFail(),
-        ]);
     }
 }

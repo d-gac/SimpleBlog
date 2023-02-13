@@ -1,6 +1,6 @@
 <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 
-    <a class="navbar-brand ps-3" href="{{route('admin.dashboard')}}">{{ config('app.name') }}</a>
+    <a class="navbar-brand ps-3" href="{{route('admin.dashboard')}}">{{tenant() ? tenant()->tenant_name : 'Simple Blog'}}</a>
 
     <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
 

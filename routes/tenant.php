@@ -31,6 +31,7 @@ Route::middleware([
     InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class,
     'CheckTenantForMaintenanceMode',
+    'tenantComponents',
 ])->group(function () {
 
     // Public
