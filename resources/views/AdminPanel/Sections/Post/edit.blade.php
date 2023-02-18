@@ -27,9 +27,9 @@
             <textarea required name="preview_content" type="text" class="form-control" id="preview_content ta-short" placeholder="Treść poglądowa...">{{ old('preview_content', $post->preview_content) }}</textarea>
             <label for="preview_content">Podgląd treści</label>
         </div>
-        <div class="form-floating mb-3">
-            <textarea required name="content" type="text" class="form-control ta-long" id="content" placeholder="Treść poglądowa...">{{ old('content', $post->content) }}</textarea>
-            <label for="content">Treść</label>
+        <div class="mb-3">
+            <label for="content" class="ckeditorLabel">Treść</label>
+            <textarea required name="content" type="text" class="ckeditor form-control ta-long" id="content" placeholder="Treść poglądowa...">{{ old('content', $post->content) }}</textarea>
         </div>
         <div class="form-floating mb-3">
             <input required name="publication_date" type="datetime-local" class="form-control" id="publication_date" value="{{ \Carbon\Carbon::parse(old('publication_date', $post->publication_date))->format('Y-m-d\TH:i:s') }}" placeholder="Data publikacji...">

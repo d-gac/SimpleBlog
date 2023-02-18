@@ -2,8 +2,6 @@
 
 namespace App\Http;
 
-use App\Http\Middleware\isSystemInstance;
-use App\Http\Middleware\TenantComponents;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
 class Kernel extends HttpKernel
@@ -38,6 +36,7 @@ class Kernel extends HttpKernel
             \Illuminate\View\Middleware\ShareErrorsFromSession::class,
             \App\Http\Middleware\VerifyCsrfToken::class,
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
+            \App\Http\Middleware\TenantComponents::class,
         ],
 
         'api' => [
@@ -65,8 +64,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'isSystemInstance' => isSystemInstance::class,
-        'tenantComponents' => TenantComponents::class,
+        'isSystemInstance' => \App\Http\Middleware\isSystemInstance::class,
+        'tenantComponents' => \App\Http\Middleware\TenantComponents::class,
         'CheckTenantForMaintenanceMode' => \Stancl\Tenancy\Middleware\CheckTenantForMaintenanceMode::class,
     ];
 }

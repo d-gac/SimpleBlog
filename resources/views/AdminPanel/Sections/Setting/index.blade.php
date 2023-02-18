@@ -50,9 +50,9 @@
                     <tbody>
                     <tr>
                         <td class="w-25">{{\Illuminate\Support\Str::words($setting->contact_title, 25) ?? 'Brak'}}</td>
-                        <td class="w-25">{{\Illuminate\Support\Str::words($setting->contact_content, 40) ?? 'Brak'}}</td>
+                        <td class="w-25">{{strip_tags(\Illuminate\Support\Str::words($setting->contact_content, 40) ?? 'Brak')}}</td>
                         <td class="w-25">{{\Illuminate\Support\Str::words($setting->about_title, 25) ?? 'Brak'}}</td>
-                        <td class="w-25">{{\Illuminate\Support\Str::words($setting->about_content, 40) ?? 'Brak'}}</td>
+                        <td class="w-25">{{strip_tags(\Illuminate\Support\Str::words($setting->about_content, 40) ?? 'Brak')}}</td>
                         <td class="d-flex flex-row bd-highlight">
                             <a class="btn btn-outline-success" href="{{route('setting.show', $setting->id)}}"><i
                                     class='fa fa-file-text'></i></a>

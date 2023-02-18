@@ -6,3 +6,10 @@
 <script src="{{config('app.url')}}/assets/demo/chart-bar-demo.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
 <script src="{{config('app.url')}}/js/datatables-simple-demo.js"></script>
+
+<script src="{{'/assets/ckeditor/ckeditor.js'}}"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.ckeditor').ckeditor();
+    });
+</script>

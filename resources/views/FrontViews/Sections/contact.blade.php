@@ -8,10 +8,10 @@
 
 @section('content')
 
-    <h2>{{$content->contact_title ?? 'Kontakt - tytuł'}}</h2>
+    <h2>{!! $content->contact_title ?? 'Kontakt - tytuł'!!}</h2>
 
     <hr>
 
-    <p>{{$content->contact_content ?? 'Kontakt - treść'}}</p>
+    <p>{!! $content->contact_content ?? 'Kontakt - treść'!!}</p>
 
 @endsection

@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Admin\InstanceController;
 use App\Http\Controllers\Admin\SettingController;
-use App\Http\Controllers\InstanceController;
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
@@ -31,7 +31,6 @@ Route::middleware([
     InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class,
     'CheckTenantForMaintenanceMode',
-    'tenantComponents',
 ])->group(function () {
 
     // Public

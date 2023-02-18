@@ -23,7 +23,7 @@
                 <img class="img-thumbnail w-25 h-25 float-start mb-3 me-4" src="{{$post->photo}}" alt="{{$post->title}} - miniaturka">
             @endif
 
-            {{$post->content}}
+            {!! $post->content !!}
         </p>
 
     </div>

@@ -55,7 +55,3 @@ Route::middleware('auth')->prefix('/admin')->group(function () {
         ->middleware('isSystemInstance');
 
 });
-
-
-
-
