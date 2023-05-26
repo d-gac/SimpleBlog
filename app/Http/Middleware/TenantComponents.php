@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use App\Models\Footer;
 use App\Models\Header;
+use App\Models\Setting;
 use Closure;
 use Illuminate\Http\Request;
 
@@ -21,6 +22,7 @@ class TenantComponents
         view()->share([
             'header' => Header::firstOrFail(),
             'footer' => Footer::firstOrFail(),
+            'custom_css' => Setting::firstOrFail(),
         ]);
 
         return $next($request);

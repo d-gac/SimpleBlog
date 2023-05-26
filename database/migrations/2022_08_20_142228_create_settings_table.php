@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('contact_content')->nullable();
             $table->string('about_title', 64)->nullable();
             $table->text('about_content')->nullable();
+            $table->text('custom_css')->nullable();
             $table->timestamps();
         });
     }

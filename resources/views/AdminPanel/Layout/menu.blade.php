@@ -27,7 +27,20 @@
 
                 </a>
 
-                <div class="collapse" id="collapsePages1" aria-labelledby="headingOne"
+                <div @class([
+                            'collapse',
+                            'show' => in_array(Route::currentRouteName(), [
+                                    "post.index",
+                                    "post.show",
+                                    "post.edit",
+                                    "category.index",
+                                    "category.show",
+                                    "category.edit",
+                                    "tag.index",
+                                    "tag.show",
+                                    "tag.edit"
+                                    ])
+                        ]) id="collapsePages1" aria-labelledby="headingOne"
                      data-bs-parent="#sidenavAccordion">
 
                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
@@ -61,7 +74,22 @@
 
                 </a>
 
-                <div class="collapse" id="collapsePages2" aria-labelledby="headingTwo"
+                <div @class([
+                            'collapse',
+                            'show' => in_array(Route::currentRouteName(), [
+                                    "setting.index",
+                                    "setting.show",
+                                    "setting.edit",
+                                    "header.index",
+                                    "header.show",
+                                    "header.edit",
+                                    "footer.index",
+                                    "footer.show",
+                                    "footer.edit"
+                                    ])
+                        ])
+                     id="collapsePages2"
+                     aria-labelledby="headingTwo"
                      data-bs-parent="#sidenavAccordion">
 
                     <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
@@ -70,11 +98,25 @@
 
                         <a class="nav-link collapsed" href="{{route('header.index')}}">Nagłówek</a>
 
-                        <a class="nav-link collapsed" href="{{route('setting.index')}}">Podstrony</a>
+                        <a class="nav-link collapsed" href="{{route('setting.index')}}">Dodatkowe ustawienia</a>
 
                     </nav>
 
                 </div>
+
+                <div class="sb-sidenav-menu-heading">Odsyłacze</div>
+
+                <a class="nav-link" href="{{route('homePage')}}">
+
+                    <div class="sb-nav-link-icon">
+
+                        <i class="fa-solid fa-bars"></i>
+
+                    </div>
+
+                    Strona główna
+
+                </a>
 
                 @if(!tenancy()->tenant)
 

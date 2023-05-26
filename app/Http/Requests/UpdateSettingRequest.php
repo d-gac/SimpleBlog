@@ -28,6 +28,7 @@ class UpdateSettingRequest extends FormRequest
             'about_content' => ['required', 'string', 'max:16384'],
             'contact_title' => ['required', 'string', 'max:64'],
             'contact_content' => ['required', 'string', 'max:16384'],
+            'custom_css' => ['nullable', 'string', 'max:16384'],
         ];
     }
 }

@@ -1,11 +1,11 @@
 @extends('AdminPanel.admin-main')
 
 @section('title')
-    Podstrony
+    Dodatkowe ustawienia
 @endsection
 
 @section('subtitle')
-    Ustawienia / Podstrony
+    Ustawienia / Dodatkowe ustawienia
 @endsection
 
 @section('dashboard')
@@ -34,6 +34,7 @@
                     <th class="w-20">Kontakt - treść</th>
                     <th class="w-20">O nas - tytuł</th>
                     <th class="w-20">O nas - treść</th>
+                    <th class="w-20">Dodatkowy CSS</th>
                     <th class="w-20">Operacje</th>
                 </tr>
                 </thead>
@@ -43,16 +44,18 @@
                     <th class="w-20">Kontakt - treść</th>
                     <th class="w-20">O nas - tytuł</th>
                     <th class="w-20">O nas - treść</th>
+                    <th class="w-20">Dodatkowy CSS</th>
                     <th class="w-20"`>Operacje</th>
                 </tr>
                 </tfoot>
                 @if($settings->is_visible_contact || $settings->is_visible_about)
                     <tbody>
                     <tr>
-                        <td class="w-25">{{\Illuminate\Support\Str::words($setting->contact_title, 25) ?? 'Brak'}}</td>
-                        <td class="w-25">{{strip_tags(\Illuminate\Support\Str::words($setting->contact_content, 40) ?? 'Brak')}}</td>
-                        <td class="w-25">{{\Illuminate\Support\Str::words($setting->about_title, 25) ?? 'Brak'}}</td>
-                        <td class="w-25">{{strip_tags(\Illuminate\Support\Str::words($setting->about_content, 40) ?? 'Brak')}}</td>
+                        <td class="w-20">{{\Illuminate\Support\Str::words($setting->contact_title, 25) ?? 'Brak'}}</td>
+                        <td class="w-20">{{strip_tags(\Illuminate\Support\Str::words($setting->contact_content, 30) ?? 'Brak')}}</td>
+                        <td class="w-20">{{\Illuminate\Support\Str::words($setting->about_title, 25) ?? 'Brak'}}</td>
+                        <td class="w-20">{{strip_tags(\Illuminate\Support\Str::words($setting->about_content, 30) ?? 'Brak')}}</td>
+                        <td class="w-20">{{strip_tags(\Illuminate\Support\Str::words($setting->custom_css, 30) ?? 'Brak')}}</td>
                         <td class="d-flex flex-row bd-highlight">
                             <a class="btn btn-outline-success" href="{{route('setting.show', $setting->id)}}"><i
                                     class='fa fa-file-text'></i></a>

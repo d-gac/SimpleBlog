@@ -1,11 +1,11 @@
 @extends('AdminPanel.admin-main')
 
 @section('title')
-    Edytuj podstrony
+    Edytuj dodatkowe ustawienia
 @endsection
 
 @section('subtitle')
-    Ustawienia / Podstrony / Edycja
+    Ustawienia / Dodatkowe ustawienia / Edycja
 @endsection
 
 @section('dashboard')
@@ -35,6 +35,10 @@
         <div class="mb-3">
             <label for="contact_content" class="ckeditorLabel">Kontakt - Treść</label>
             <textarea name="contact_content" type="text" class="ckeditor form-control ta-short" id="contact_content" placeholder="Treść kontaktu...">{{ old('contact_content', $setting->contact_content) }}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="custom_css" class="ckeditorLabel">Dodatkowy CSS</label>
+            <textarea name="custom_css" type="text" class="ckeditor form-control ta-short" id="custom_css" >{{ old('custom_css', $setting->custom_css) }}</textarea>
         </div>
 
         <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">

@@ -21,6 +21,7 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
+        "@ckeditor/ckeditor5-build-classic": "^36.0.1",
         "autoprefixer": "10.4.5",
         "chart.js": "^3.8.0",
         "mdbootstrap": "^4.20.0"

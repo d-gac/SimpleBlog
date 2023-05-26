@@ -95,7 +95,7 @@
                                        onclick="event.preventDefault();
                                        document.getElementById('logout-form').submit();">
 
-                                        {{ __('Logout') }}
+                                        Wyloguj
 
                                     </a>
 

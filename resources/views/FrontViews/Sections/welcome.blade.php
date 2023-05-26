@@ -8,17 +8,41 @@
 
 @section('content')
 
+    @auth
+        <a class="btn btn-success p-2 mb-5" href="{{route('post.create')}}">Dodaj wpis <i
+                class='fa fa-plus-square'></i></a>
+    @endauth
+
     @if($posts->count())
 
         @foreach($posts as $post)
 
             <div class="row">
-                <div class={{$post->photo ? "col-md-7" : "col-md-12"}}>
+                <div>
                     <div class="post-preview">
-                        <a href="{{url('post/'.$post->slug)}}">
-                            <h4 class="post-title">{{$post->title}}</h4>
-                        </a>
-                        <h5 class="post-subtitle">{{$post->preview_content}}</h5>
+                        <h4 class="post-title"><a href="{{url('post/'.$post->slug)}}">{{$post->title}}</a></h4>
+                        @auth
+                            <div class="d-flex">
+                                <a class="btn btn-primary p-2 mb-2" href="{{route('post.edit', $post->id)}}">Przejdź do edycji <i class="fa fa-pencil" aria-hidden="true"></i></a>
+                                <form action="{{route('post.destroy',$post->id)}}" method="POST">
+                                    @method('DELETE')
+                                    @csrf
+                                    <button onclick="return confirm('Usunąć element?')" class="btn btn-danger p-2 mb-2 mx-2"
+                                            type="submit">Usuń element <i class="fa fa-trash" aria-hidden="true"></i></button>
+                                </form>
+                            </div>
+                        @endauth
+                        <h5 class="post-subtitle">
+                            @if($post->photo)
+                                <img @class([
+                                            'img-thumbnail img-main-page',
+                                            'float-right' => $loop->index % 2 != 0
+                                        ])
+                                     src="{{$post->photo}}"
+                                     alt="{{$post->title}} - miniaturka">
+                            @endif
+                            {{$post->preview_content}}
+                        </h5>
                         <p class="post-meta">
                             Opublikowane przez
                             <a href="{{route('user.detail', $post->user->slug_name)}}">{{$post->user->name}}</a>
@@ -26,12 +50,6 @@
                         </p>
                     </div>
                 </div>
-                @if($post->photo)
-                    <div class="col-md-5">
-                        <img class="img-thumbnail float-start mb-3 me-4" src="{{$post->photo}}"
-                             alt="{{$post->title}} - miniaturka">
-                    </div>
-                @endif
 
 
                 @if(!$loop->last)
@@ -41,7 +59,6 @@
             </div>
 
         @endforeach
-
 
         <div class="d-flex justify-content-evenly">
             {{$posts->links()}}

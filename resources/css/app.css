@@ -11263,3 +11263,30 @@ header.masthead .post-heading .meta a {
 .page-link:focus {
      box-shadow: none !important;
 }
+
+.row div .post-preview a .post-title {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.img-main-page {
+    max-width: 40%;
+    float: left;
+    margin: 0 1.5rem 1rem 0;
+}
+
+.float-right {
+    float: right;
+    margin: 0 0 1rem 1.5rem;
+}
+
+.title-of-post {
+
+}
+
+@media (max-width: 768px) {
+    .title-of-post .buttons-of-post{
+        display: none;
+    }
+}
+

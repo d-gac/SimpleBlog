@@ -609,7 +609,7 @@ progress {
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
-  height: auto;
+  max-height: 125px;
 }
 
 .figure {
@@ -11724,5 +11724,15 @@ body {
 
 .w-85 {
     width: 85%;
+}
+
+.ckeditorLabel {
+    opacity: 0.65 !important;
+    transform: scale(.85) translateY(-0.5rem) translateX(0.15rem);
+    margin-top: 5px;
+}
+
+#datatablesSimple tbody tr td:last-child {
+    display: flex;
 }
 

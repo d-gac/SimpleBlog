@@ -18,7 +18,7 @@
 
         <div class="row gx-4 gx-lg-5 justify-content-center">
 
-            <div class="col-md-10 col-lg-8 col-xl-10">
+            <div class="col-12 col-xl-10">
 
                 @yield('content')
 

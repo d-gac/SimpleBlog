@@ -15,5 +15,6 @@ class Setting extends Model
         'contact_content',
         'about_title',
         'about_content',
+        'custom_css',
     ];
 }

@@ -111,6 +111,6 @@ class PostController extends Controller
         $row = DB::transaction(function () use ($post) {
             return $post->delete();
         });
-        return redirect()->route('post.index');
+        return redirect()->back();
     }
 }
