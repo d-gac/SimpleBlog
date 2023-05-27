@@ -34,6 +34,10 @@ Route::prefix('/')->group(function () {
 
     Auth::routes(['register' => false]);
 
+    Route::fallback(function() {
+        return redirect()->route('homePage');
+    });
+
 });
 
 

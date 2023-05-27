@@ -60,7 +60,19 @@
 
                     @else
 
-                        <h1>{{Route::current()->getName() == 'aboutPage' ? 'O nas' : 'Kontakt'}}</h1>
+                        <h1>
+                            @if(Route::current()->getName() == 'aboutPage')
+                                O nas
+                            @elseif(Route::current()->getName() == 'contactPage')
+                                Kontakt
+                            @else
+                                <h1>{{$header->banner_title ?? 'Tytuł baneru'}}</h1>
+                                <span
+                                    class="subheading">{{$header->banner_paragraph ?? 'Zawartość baneru. Możlliwość edycji z panelu w zakładce \'Nagłówek\'.'}}</span>
+                            @endif
+
+                        </h1>
+
                         <span
                             class="subheading">&nbsp;</span>
 

@@ -43,7 +43,7 @@
         <label for="image">Miniaturka</label>
         <div class="form-floating mb-3">
             @if(old('photo', $post->photo))
-                <img class="img-thumbnail w-25 h-25" src="{{$post->photo}}" alt="{{$post->title}} - miniaturka">
+                <img class="img-thumbnail w-25 mh-25" src="{{$post->photo}}" alt="{{$post->title}} - miniaturka">
             @endif
             <input type="file" name="image" placeholder="Wybierz obrazek" value="{{old('image')}}" id="image">
         </div>

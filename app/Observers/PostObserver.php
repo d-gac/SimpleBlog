@@ -65,6 +65,7 @@ class PostObserver
     {
         $old_photo = $post->photo;
         $post->photo = $old_photo;
+        $post->slug = Str::slug($post->title, '-');
 
         if (request()->hasFile('image')) {
             if (Helper::uploadPhoto($post)) {

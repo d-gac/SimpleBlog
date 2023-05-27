@@ -32,7 +32,7 @@
     <label for="image">Miniaturka</label>
     <div class="form-floating mb-3">
         @if($post->photo)
-            <img class="img-thumbnail w-25 h-25" src="{{$post->photo}}" alt="{{$post->title}} - miniaturka">
+            <img class="img-thumbnail w-25 mh-25" src="{{$post->photo}}" alt="{{$post->title}} - miniaturka">
         @endif
     </div>
     <div class="mb-3">

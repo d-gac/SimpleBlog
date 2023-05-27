@@ -65,7 +65,7 @@ class FrontController extends Controller
         $post = Post::with('user')
             ->where('slug', $slug)
             ->where('active', 1)
-            ->first();
+            ->firstOrFail();
 
         return view('FrontViews.Sections.post', [
             'post' => $post,
