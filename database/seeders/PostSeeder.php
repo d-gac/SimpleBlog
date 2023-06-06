@@ -19,37 +19,20 @@ class PostSeeder extends Seeder
 //        Post::factory()->count(5)->create();
         DB::table('posts')->insert(
             array(
-
                 array(
                     'title' => 'Wpis testowy',
                     'slug' => 'wpis-testowy',
-                    'preview_content' => 'Wpis testowy o niczym',
-                    'content' => 'Wpis testowy o niczym. Niczego tutaj nie znajdziesz',
+                    'preview_content' => 'Wpis testowy. Można go edytować oraz usunąć.',
+                    'content' => 'Wpis testowy pozwalajacy na zapoznanie się z podstawowymi mechanizmami aplikacji.',
                     'active' => 1,
-                    'publication_date' => '2019-09-10 11:45:42',
+                    'publication_date' => '2023-06-06 12:00:00',
                     'photo' => NULL,
                     'created_by' => 1,
                     'updated_by' => 1,
                     'created_at' => now(),
                     'updated_at' => now(),
                 ),
-
-                array(
-                    'title' => 'Wpis testowy numer 2',
-                    'slug' => 'wpis-testowy-numer-2',
-                    'preview_content' => 'Wpis testowy numer 2 o niczym',
-                    'content' => 'Wpis testowy numer 2 o niczym. Niczego tutaj nie znajdziesz',
-                    'active' => 1,
-                    'publication_date' => '2021-02-19 16:59:44',
-                    'photo' => NULL,
-                    'created_by' => 1,
-                    'updated_by' => 1,
-                    'created_at' => now(),
-                    'updated_at' => now(),
-                ),
-
             ),
-
         );
     }
 }

@@ -16,21 +16,16 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-//        Category::factory()->count(5)->create();
-
         DB::table('categories')->insert(
             array(
-
                 array(
                     'name' => 'Wpisy',
                     'description' => 'Zwykłe wpisy',
                 ),
-
-                array(
-                    'name' => 'Aktualności',
-                    'description' => 'Wyróżnione wpisy',
-                ),
-
+//                array(
+//                    'name' => 'Aktualności',
+//                    'description' => 'Wyróżnione wpisy',
+//                ),
             ),
 
         );

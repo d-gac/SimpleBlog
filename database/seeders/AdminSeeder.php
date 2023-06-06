@@ -16,11 +16,21 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'Dariusz Gac',
-            'slug_name' => 'dariusz-gac',
-            'email' => 'darekgac1998@gmail.com',
-            'password' => Hash::make('12345678'),
-        ]);
+        DB::table('users')->insert(
+            array(
+                array(
+                    'name' => 'Dariusz Gac',
+                    'slug_name' => 'dariusz-gac',
+                    'email' => 'administrator@simple-blog.com',
+                    'password' => Hash::make('12345678'),
+                ),
+                array(
+                    'name' => 'Redaktor',
+                    'slug_name' => 'redaktor',
+                    'email' => 'redaktor@simple-blog.com',
+                    'password' => Hash::make('12345678'),
+                ),
+            )
+        );
     }
 }

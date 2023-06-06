@@ -19,10 +19,10 @@ class SettingSeeder extends Seeder
             array(
 
                 array(
-                    'contact_title' => 'Kontakt!',
-                    'contact_content' => 'Kontakt! - treść',
-                    'about_title' => 'O nas!',
-                    'about_content' => 'O nas! - treść',
+                    'contact_title' => 'Kontakt',
+                    'contact_content' => 'Kontakt - treść',
+                    'about_title' => 'O nas',
+                    'about_content' => 'O nas - treść',
                 ),
 
             ),

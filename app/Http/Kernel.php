@@ -64,8 +64,8 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        'isSystemInstance' => \App\Http\Middleware\isSystemInstance::class,
-        'tenantComponents' => \App\Http\Middleware\TenantComponents::class,
-        'CheckTenantForMaintenanceMode' => \Stancl\Tenancy\Middleware\CheckTenantForMaintenanceMode::class,
+        'is.system.instance' => \App\Http\Middleware\isSystemInstance::class,
+        'tenant.components' => \App\Http\Middleware\TenantComponents::class,
+        'check.tenant.for.maintenance.mode' => \Stancl\Tenancy\Middleware\CheckTenantForMaintenanceMode::class,
     ];
 }

@@ -56,6 +56,6 @@ Route::middleware('auth')->prefix('/admin')->group(function () {
     ]);
 
     Route::resource('instance', InstanceController::class)
-        ->middleware('isSystemInstance');
+        ->middleware('is.system.instance');
 
 });

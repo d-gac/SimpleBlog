@@ -11290,11 +11290,9 @@ header.masthead .post-heading .meta a {
     }
 }
 
-
-
 @media (max-width: 600px) {
     .img-thumbnail {
         max-width: 100%;
+        min-width: 100%;
     }
 }
-

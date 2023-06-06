@@ -30,7 +30,7 @@ Route::middleware([
     'web',
     InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class,
-    'CheckTenantForMaintenanceMode',
+    'check.tenant.for.maintenance.mode',
 ])->group(function () {
 
     // Public
@@ -59,7 +59,7 @@ Route::middleware([
         ]);
 
         Route::resource('instance', InstanceController::class)
-            ->middleware('isSystemInstance');
+            ->middleware('is.system.instance');
     });
 
 });

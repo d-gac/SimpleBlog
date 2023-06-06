@@ -19,19 +19,15 @@ class TagSeeder extends Seeder
 //        Tag::factory()->count(5)->create();
         DB::table('tags')->insert(
             array(
-
                 array(
                     'name' => '#Holidays',
                     'description' => 'Wakacje',
                 ),
-
                 array(
                     'name' => '#FreeTime',
                     'description' => 'Czas wolny',
                 ),
-
             ),
-
         );
     }
 }

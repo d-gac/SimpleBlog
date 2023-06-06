@@ -20,7 +20,7 @@
 
         <p>
             @if($post->photo)
-                <img class="img-thumbnail w-50 h-25 float-start mb-2 me-3" src="{{$post->photo}}" alt="{{$post->title}} - miniaturka">
+                <img class="img-thumbnail w-50 h-25 float-start mb-2 me-3 w-mobile-100" src="{{$post->photo}}" alt="{{$post->title}} - miniaturka">
             @endif
 
             {!! $post->content !!}
