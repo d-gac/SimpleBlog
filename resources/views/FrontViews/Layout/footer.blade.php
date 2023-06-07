@@ -13,7 +13,7 @@
 
                         <li class="list-inline-item">
 
-                            <a href="{{$footer->twitter}}">
+                            <a target="_blank" href="{{$footer->twitter}}">
 
                                     <span class="fa-stack fa-lg">
 
@@ -33,7 +33,7 @@
 
                         <li class="list-inline-item">
 
-                            <a href="{{$footer->facebook}}">
+                            <a target="_blank" href="{{$footer->facebook}}">
 
                                     <span class="fa-stack fa-lg">
 
@@ -53,7 +53,7 @@
 
                         <li class="list-inline-item">
 
-                            <a href="{{$footer->github}}">
+                            <a target="_blank" href="{{$footer->github}}">
 
                                     <span class="fa-stack fa-lg">
 
@@ -73,7 +73,7 @@
 
                         <li class="list-inline-item">
 
-                            <a href="{{$footer->linkedin}}">
+                            <a target="_blank" href="{{$footer->linkedin}}">
 
                                     <span class='fa-stack fa-lg'>
 
@@ -93,7 +93,7 @@
 
                         <li class="list-inline-item">
 
-                            <a href="{{$footer->youtube}}">
+                            <a target="_blank" href="{{$footer->youtube}}">
 
                                     <span class='fa-stack fa-lg'>
 

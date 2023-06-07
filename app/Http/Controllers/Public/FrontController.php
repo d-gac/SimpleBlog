@@ -23,7 +23,7 @@ class FrontController extends Controller
     public function homePage(): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
         $posts = PostResource::collection(
-            Post::with('user')
+            Post::with('user', 'categories', 'tags')
                 ->where('active', 1)
                 ->where('publication_date', '<', now())
                 ->orderBy('publication_date','desc')
@@ -62,7 +62,7 @@ class FrontController extends Controller
      */
     public function postDetail($slug): \Illuminate\Contracts\View\View|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $post = Post::with('user')
+        $post = Post::with('user', 'categories', 'tags')
             ->where('slug', $slug)
             ->where('active', 1)
             ->firstOrFail();
@@ -81,7 +81,8 @@ class FrontController extends Controller
         $user = User::where('slug_name', $slug_name)
             ->first();
 
-        $posts = Post::where('created_by', $user->id)
+        $posts = Post::with('categories', 'tags')
+            ->where('created_by', $user->id)
             ->orderByDesc('publication_date')
             ->where('active', 1)
             ->paginate(5);

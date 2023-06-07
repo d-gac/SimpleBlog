@@ -25,6 +25,7 @@ class PostResource extends JsonResource
             'active'=>$this->active,
             'publication_date'=>$this->publication_date,
             'categories'=>$this->categories,
+            'tags'=>$this->tags,
             'user'=>$this->user,
             'category_names'=> self::getCategoryNames($this->categories),
         ];
