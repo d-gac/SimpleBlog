@@ -21,14 +21,20 @@ class AdminSeeder extends Seeder
                 array(
                     'name' => 'Dariusz Gac',
                     'slug_name' => 'dariusz-gac',
+                    'email' => 'dariusz-gac@simple-blog.com',
+                    'password' => Hash::make('+wCZ@Z<NGB*RN$AeKqdF'),
+                ),
+                array(
+                    'name' => 'Administrator',
+                    'slug_name' => 'administrator',
                     'email' => 'administrator@simple-blog.com',
-                    'password' => Hash::make('12345678'),
+                    'password' => Hash::make('D+3wU?Tr7/7Rm)XM@/Cx'),
                 ),
                 array(
                     'name' => 'Redaktor',
                     'slug_name' => 'redaktor',
                     'email' => 'redaktor@simple-blog.com',
-                    'password' => Hash::make('12345678'),
+                    'password' => Hash::make('\%#$vaJrL@KV*a3rx-P$'),
                 ),
             )
         );
