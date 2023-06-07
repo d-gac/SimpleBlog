@@ -11296,3 +11296,6 @@ header.masthead .post-heading .meta a {
     color: #6c757d;
     font-family: var(--bs-body-font-family);
 }
+#tutorial li{
+    margin: 10px 0;
+}
