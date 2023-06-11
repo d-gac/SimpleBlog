@@ -26,10 +26,10 @@ class StoreInstanceRequest extends FormRequest
     {
         return [
             'name' => 'required|string|max:255',
-            'domain' => 'required|regex:/^[a-zA-Z0-9 ]+$/|max:42',
+            'domain' => 'required|regex:/^[a-zA-Z0-9- ]+$/|max:42',
             'domain_slug' => 'required|string|max:512',
             'active' => 'nullable|boolean',
-            'description' => 'nullable|string|max:1024',
+            'description' => 'required|string|max:1024',
         ];
     }
 
