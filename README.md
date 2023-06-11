@@ -11,3 +11,6 @@ After clone:
 4. php artisan migrate --seed
 5. php artisan key:generate
 6. php artisan storage:link
+
+
+The homepage contains a message with further instructions on how to create your blog instance.
