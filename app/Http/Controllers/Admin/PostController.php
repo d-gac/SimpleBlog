@@ -9,6 +9,8 @@ use App\Models\Header;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
@@ -17,9 +19,9 @@ class PostController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         $posts = PostResource::collection(Post::all());
         return view('AdminPanel.Sections.Post.index', [
@@ -30,12 +32,11 @@ class PostController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
         return view('AdminPanel.Sections.Post.create', [
-//            'categories' => CategoryResource::collection(Category::all()),
             'categories' => Category::all(),
         ]);
     }
@@ -43,10 +44,10 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StorePostRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  StorePostRequest  $request
+     * @return RedirectResponse
      */
-    public function store(StorePostRequest $request)
+    public function store(StorePostRequest $request): RedirectResponse
     {
         $row = DB::transaction(function () use ($request) {
             return Post::create($request->validated());
@@ -57,10 +58,10 @@ class PostController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param  Post  $post
+     * @return View
      */
-    public function show(Post $post)
+    public function show(Post $post): View
     {
         return view('AdminPanel.Sections.Post.show', [
             'categories' => Category::all(),
@@ -72,13 +73,12 @@ class PostController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param  Post  $post
+     * @return View
      */
-    public function edit(Post $post)
+    public function edit(Post $post): View
     {
         return view('AdminPanel.Sections.Post.edit', [
-//            'categories' => CategoryResource::collection(Category::all()),
             'categories' => Category::all(),
             'post' => $post,
             'actualCategories' => $post->categories->pluck('id')->toArray(),
@@ -88,11 +88,11 @@ class PostController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdatePostRequest  $request
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  UpdatePostRequest  $request
+     * @param  Post  $post
+     * @return RedirectResponse
      */
-    public function update(UpdatePostRequest $request, Post $post)
+    public function update(UpdatePostRequest $request, Post $post): RedirectResponse
     {
         $row = DB::transaction(function () use ($request, $post) {
             return $post->update($request->validated());
@@ -103,10 +103,10 @@ class PostController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  Post  $post
+     * @return RedirectResponse
      */
-    public function destroy(Post $post)
+    public function destroy(Post $post): RedirectResponse
     {
         $row = DB::transaction(function () use ($post) {
             return $post->delete();

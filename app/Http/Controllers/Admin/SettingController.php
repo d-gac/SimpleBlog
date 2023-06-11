@@ -8,6 +8,8 @@ use App\Models\Header;
 use App\Models\Setting;
 use App\Http\Requests\StoreSettingRequest;
 use App\Http\Requests\UpdateSettingRequest;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 
 class SettingController extends Controller
@@ -15,12 +17,11 @@ class SettingController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         return view('AdminPanel.Sections.Setting.index', [
-//            'setting' => new SettingResource(Setting::first()),
             'setting' => Setting::first(),
             'settings' => Header::first(),
         ]);
@@ -29,9 +30,9 @@ class SettingController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function create()
+    public function create(): RedirectResponse
     {
         return redirect()->route('setting.index');
     }
@@ -39,10 +40,10 @@ class SettingController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreSettingRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  StoreSettingRequest  $request
+     * @return RedirectResponse
      */
-    public function store(StoreSettingRequest $request)
+    public function store(StoreSettingRequest $request): RedirectResponse
     {
         return redirect()->route('setting.index');
     }
@@ -50,10 +51,10 @@ class SettingController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param  Setting  $setting
+     * @return View
      */
-    public function show(Setting $setting)
+    public function show(Setting $setting): View
     {
         return view('AdminPanel.Sections.Setting.show', [
             'setting' => $setting,
@@ -63,10 +64,10 @@ class SettingController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param  Setting  $setting
+     * @return View
      */
-    public function edit(Setting $setting)
+    public function edit(Setting $setting): View
     {
         return view('AdminPanel.Sections.Setting.edit', [
             'setting' => $setting,
@@ -76,11 +77,11 @@ class SettingController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateSettingRequest  $request
-     * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  UpdateSettingRequest  $request
+     * @param  Setting  $setting
+     * @return RedirectResponse
      */
-    public function update(UpdateSettingRequest $request, Setting $setting)
+    public function update(UpdateSettingRequest $request, Setting $setting): RedirectResponse
     {
         $row = DB::transaction(function () use ($request, $setting) {
             return $setting->update($request->validated());
@@ -91,10 +92,10 @@ class SettingController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Setting  $setting
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  Setting  $setting
+     * @return RedirectResponse
      */
-    public function destroy(Setting $setting)
+    public function destroy(Setting $setting): RedirectResponse
     {
         return redirect()->route('setting.index');
     }

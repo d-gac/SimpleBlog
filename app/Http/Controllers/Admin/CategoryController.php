@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Header;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
@@ -15,9 +17,9 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         return view('AdminPanel.Sections.Category.index', [
             'categories' => CategoryResource::collection(Category::get())
@@ -27,20 +29,21 @@ class CategoryController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
         return view('AdminPanel.Sections.Category.create');
     }
 
     /**
+     *
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreCategoryRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param StoreCategoryRequest $request
+     * @return RedirectResponse
      */
-    public function store(StoreCategoryRequest $request)
+    public function store(StoreCategoryRequest $request): RedirectResponse
     {
         $row = DB::transaction(function () use ($request) {
             return Category::create($request->validated());
@@ -51,10 +54,10 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param Category $category
+     * @return View
      */
-    public function show(Category $category)
+    public function show(Category $category): View
     {
         return view('AdminPanel.Sections.Category.show', [
             'category' => $category,
@@ -64,10 +67,10 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param Category $category
+     * @return View
      */
-    public function edit(Category $category)
+    public function edit(Category $category): View
     {
         return view('AdminPanel.Sections.Category.edit', [
             'category' => $category,
@@ -77,11 +80,11 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateCategoryRequest  $request
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  UpdateCategoryRequest  $request
+     * @param  Category  $category
+     * @return RedirectResponse
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(UpdateCategoryRequest $request, Category $category): RedirectResponse
     {
         $row = DB::transaction(function () use ($request, $category) {
             return $category->update($request->validated());
@@ -92,10 +95,10 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  Category  $category
+     * @return RedirectResponse
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category): RedirectResponse
     {
         $row = DB::transaction(function () use ($category) {
             return $category->delete();

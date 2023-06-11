@@ -8,6 +8,8 @@ use App\Http\Requests\UpdateInstanceRequest;
 use App\Http\Resources\InstanceResource;
 use App\Models\Instance;
 use App\Models\Tenant;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 
 class InstanceController extends Controller
@@ -15,9 +17,9 @@ class InstanceController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         return view('AdminPanel.Sections.Instance.index', [
             'instances' => InstanceResource::collection(Instance::get())
@@ -27,9 +29,9 @@ class InstanceController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
         return view('AdminPanel.Sections.Instance.create');
     }
@@ -37,10 +39,10 @@ class InstanceController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \App\Http\Requests\StoreInstanceRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param StoreInstanceRequest $request
+     * @return RedirectResponse
      */
-    public function store(StoreInstanceRequest $request)
+    public function store(StoreInstanceRequest $request): RedirectResponse
     {
         $row = DB::transaction(function () use ($request) {
             $validated = $request->validated();
@@ -69,10 +71,10 @@ class InstanceController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Instance $instance
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param Instance $instance
+     * @return View
      */
-    public function show(Instance $instance)
+    public function show(Instance $instance): View
     {
         return view('AdminPanel.Sections.Instance.show', [
             'instance' => $instance,
@@ -82,10 +84,10 @@ class InstanceController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Instance $instance
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param Instance $instance
+     * @return View
      */
-    public function edit(Instance $instance)
+    public function edit(Instance $instance): View
     {
         return view('AdminPanel.Sections.Instance.edit', [
             'instance' => $instance,
@@ -95,11 +97,11 @@ class InstanceController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \App\Http\Requests\UpdateInstanceRequest $request
-     * @param \App\Models\Instance $instance
-     * @return \Illuminate\Http\RedirectResponse
+     * @param UpdateInstanceRequest $request
+     * @param Instance $instance
+     * @return RedirectResponse
      */
-    public function update(UpdateInstanceRequest $request, Instance $instance)
+    public function update(UpdateInstanceRequest $request, Instance $instance): RedirectResponse
     {
         $row = DB::transaction(function () use ($request, $instance) {
             return $instance->update($request->validated());
@@ -124,10 +126,10 @@ class InstanceController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Instance $instance
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Instance $instance
+     * @return RedirectResponse
      */
-    public function destroy(Instance $instance)
+    public function destroy(Instance $instance): RedirectResponse
     {
         $row = DB::transaction(function () use ($instance) {
             return $instance->delete();

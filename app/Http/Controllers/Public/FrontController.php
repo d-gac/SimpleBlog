@@ -17,11 +17,11 @@ use Illuminate\Http\Request;
 class FrontController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the posts.
      *
-     * @return \Illuminate\Contracts\View\View
+     * @return View
      */
-    public function homePage(): \Illuminate\Contracts\View\View
+    public function homePage(): View
     {
         $posts = PostResource::collection(
             Post::active()
@@ -41,7 +41,7 @@ class FrontController extends Controller
      * @param $slug
      * @return View
      */
-    public function postDetail($slug): \Illuminate\Contracts\View\View
+    public function postDetail($slug): View
     {
         $post = Post::active()
             ->where('slug', $slug)
@@ -53,10 +53,12 @@ class FrontController extends Controller
     }
 
     /**
+     * Display a listing of the author's posts.
+     *
      * @param $slug_name
      * @return View
      */
-    public function userDetail($slug_name): \Illuminate\Contracts\View\View
+    public function userDetail($slug_name): View
     {
         $user = User::where('slug_name', $slug_name)
             ->first();
@@ -75,7 +77,7 @@ class FrontController extends Controller
     /**
      * @return View
      */
-    public function aboutPage(): \Illuminate\Contracts\View\View
+    public function aboutPage(): View
     {
         return view('FrontViews.Sections.about', [
             'content' => Setting::firstOrFail()
@@ -85,7 +87,7 @@ class FrontController extends Controller
     /**
      * @return View
      */
-    public function contactPage(): \Illuminate\Contracts\View\View
+    public function contactPage(): View
     {
         return view('FrontViews.Sections.contact', [
             'content' => Setting::firstOrFail()

@@ -7,6 +7,8 @@ use App\Models\Footer;
 use App\Http\Requests\StoreFooterRequest;
 use App\Http\Requests\UpdateFooterRequest;
 use App\Models\Header;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 
 class FooterController extends Controller
@@ -14,9 +16,9 @@ class FooterController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         return view('AdminPanel.Sections.Footer.index', [
             'footer' => Footer::first()
@@ -26,9 +28,9 @@ class FooterController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function create()
+    public function create(): RedirectResponse
     {
         return redirect()->route('footer.index');
     }
@@ -36,10 +38,10 @@ class FooterController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreFooterRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  StoreFooterRequest  $request
+     * @return RedirectResponse
      */
-    public function store(StoreFooterRequest $request)
+    public function store(StoreFooterRequest $request): RedirectResponse
     {
         return redirect()->route('footer.index');
     }
@@ -47,10 +49,10 @@ class FooterController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Footer  $footer
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param Footer $footer
+     * @return View
      */
-    public function show(Footer $footer)
+    public function show(Footer $footer): View
     {
         return view('AdminPanel.Sections.Footer.show', [
             'footer' => $footer,
@@ -60,10 +62,10 @@ class FooterController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Footer  $footer
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param  Footer  $footer
+     * @return View
      */
-    public function edit(Footer $footer)
+    public function edit(Footer $footer): View
     {
         return view('AdminPanel.Sections.Footer.edit', [
             'footer' => $footer,
@@ -73,11 +75,11 @@ class FooterController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateFooterRequest  $request
-     * @param  \App\Models\Footer  $footer
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  UpdateFooterRequest  $request
+     * @param  Footer  $footer
+     * @return RedirectResponse
      */
-    public function update(UpdateFooterRequest $request, Footer $footer)
+    public function update(UpdateFooterRequest $request, Footer $footer): RedirectResponse
     {
         $validated = $request->validated();
 
@@ -96,10 +98,10 @@ class FooterController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Footer  $footer
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  Footer  $footer
+     * @return RedirectResponse
      */
-    public function destroy(Footer $footer)
+    public function destroy(Footer $footer): RedirectResponse
     {
         return redirect()->route('footer.index');
     }

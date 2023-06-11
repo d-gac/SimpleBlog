@@ -8,6 +8,8 @@ use App\Models\Header;
 use App\Models\Tag;
 use App\Http\Requests\StoreTagRequest;
 use App\Http\Requests\UpdateTagRequest;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
 
@@ -16,9 +18,9 @@ class TagController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         return view('AdminPanel.Sections.Tag.index', [
             'tags' => TagResource::collection(Tag::get())
@@ -28,9 +30,9 @@ class TagController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return View
      */
-    public function create()
+    public function create(): View
     {
         return view('AdminPanel.Sections.Tag.create');
     }
@@ -38,10 +40,10 @@ class TagController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param \App\Http\Requests\StoreTagRequest $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param StoreTagRequest $request
+     * @return RedirectResponse
      */
-    public function store(StoreTagRequest $request)
+    public function store(StoreTagRequest $request): RedirectResponse
     {
         $row = DB::transaction(function () use ($request) {
             return Tag::create($request->validated());
@@ -52,10 +54,10 @@ class TagController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param \App\Models\Tag $tag
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param Tag $tag
+     * @return View
      */
-    public function show(Tag $tag)
+    public function show(Tag $tag): View
     {
         return view('AdminPanel.Sections.Tag.show', [
 //            'tag' => new TagResource($tag),
@@ -66,13 +68,12 @@ class TagController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param \App\Models\Tag $tag
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param Tag $tag
+     * @return View
      */
-    public function edit(Tag $tag)
+    public function edit(Tag $tag): View
     {
         return view('AdminPanel.Sections.Tag.edit', [
-//            'tag' => new CategoryResource($tag),
             'tag' => $tag,
         ]);
     }
@@ -80,11 +81,11 @@ class TagController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param \App\Http\Requests\UpdateTagRequest $request
-     * @param \App\Models\Tag $tag
-     * @return \Illuminate\Http\RedirectResponse
+     * @param UpdateTagRequest $request
+     * @param Tag $tag
+     * @return RedirectResponse
      */
-    public function update(UpdateTagRequest $request, Tag $tag)
+    public function update(UpdateTagRequest $request, Tag $tag): RedirectResponse
     {
         $row = DB::transaction(function () use ($request, $tag) {
             return $tag->update($request->validated());
@@ -95,10 +96,10 @@ class TagController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param \App\Models\Tag $tag
-     * @return \Illuminate\Http\RedirectResponse
+     * @param Tag $tag
+     * @return RedirectResponse
      */
-    public function destroy(Tag $tag)
+    public function destroy(Tag $tag): RedirectResponse
     {
         $row = DB::transaction(function () use ($tag) {
             return $tag->delete();

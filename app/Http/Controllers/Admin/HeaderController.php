@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Header;
 use App\Http\Requests\StoreHeaderRequest;
 use App\Http\Requests\UpdateHeaderRequest;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\DB;
 
 class HeaderController extends Controller
@@ -13,9 +15,9 @@ class HeaderController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         return view('AdminPanel.Sections.Header.index', [
             'header' => Header::first()
@@ -25,9 +27,9 @@ class HeaderController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\RedirectResponse
+     * @return RedirectResponse
      */
-    public function create()
+    public function create(): RedirectResponse
     {
         return redirect()->route('header.index');
     }
@@ -35,10 +37,10 @@ class HeaderController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoreHeaderRequest  $request
-     * @return \Illuminate\Http\RedirectResponse
+     * @param StoreHeaderRequest  $request
+     * @return RedirectResponse
      */
-    public function store(StoreHeaderRequest $request)
+    public function store(StoreHeaderRequest $request): RedirectResponse
     {
         return redirect()->route('header.index');
     }
@@ -46,10 +48,10 @@ class HeaderController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Header  $header
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @param  Header  $header
+     * @return View
      */
-    public function show(Header $header)
+    public function show(Header $header): View
     {
         return view('AdminPanel.Sections.Header.show', [
             'header' => $header,
@@ -60,9 +62,9 @@ class HeaderController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Header  $header
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return View
      */
-    public function edit(Header $header)
+    public function edit(Header $header): View
     {
         return view('AdminPanel.Sections.Header.edit', [
             'header' => $header,
@@ -72,11 +74,11 @@ class HeaderController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdateHeaderRequest  $request
-     * @param  \App\Models\Header  $header
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  UpdateHeaderRequest  $request
+     * @param  Header  $header
+     * @return RedirectResponse
      */
-    public function update(UpdateHeaderRequest $request, Header $header)
+    public function update(UpdateHeaderRequest $request, Header $header): RedirectResponse
     {
         $validated = $request->validated();
 
@@ -93,10 +95,10 @@ class HeaderController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Header  $header
-     * @return \Illuminate\Http\RedirectResponse
+     * @param  Header  $header
+     * @return RedirectResponse
      */
-    public function destroy(Header $header)
+    public function destroy(Header $header): RedirectResponse
     {
         return redirect()->route('header.index');
     }
